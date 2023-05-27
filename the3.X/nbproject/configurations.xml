@@ -4,10 +4,10 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
-      <itemPath>../the3.h</itemPath>
       <itemPath>ADC.h</itemPath>
       <itemPath>LCD.h</itemPath>
       <itemPath>Pragmas.h</itemPath>
+      <itemPath>the3.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"

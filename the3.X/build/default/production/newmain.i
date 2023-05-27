@@ -4605,6 +4605,193 @@ void LCDAddSpecialCharacter(byte character_index, byte * data) {
 
 }
 # 9 "newmain.c" 2
+# 1 "./the3.h" 1
+# 18 "./the3.h"
+typedef unsigned char byte;
+
+byte teamA_player[] = {
+                  0b10001,
+                  0b10101,
+                  0b01010,
+                  0b00100,
+                  0b00100,
+                  0b00100,
+                  0b01010,
+                  0b01010
+                };
+
+byte teamB_player[] = {
+                  0b10001,
+                  0b10101,
+                  0b01010,
+                  0b00100,
+                  0b01110,
+                  0b11111,
+                  0b01010,
+                  0b01010
+                };
+
+byte selected_teamA_player[] = {
+                  0b10001,
+                  0b10101,
+                  0b01010,
+                  0b00100,
+                  0b00100,
+                  0b00100,
+                  0b01010,
+                  0b11111
+                };
+
+byte selected_teamB_player[] = {
+                  0b10001,
+                  0b10101,
+                  0b01010,
+                  0b00100,
+                  0b01110,
+                  0b11111,
+                  0b01010,
+                  0b11111
+                };
+
+
+byte selected_teamA_player_with_frisbee[] = {
+                  0b11111,
+                  0b10101,
+                  0b01010,
+                  0b00100,
+                  0b00100,
+                  0b00100,
+                  0b01010,
+                  0b11111
+                };
+
+byte selected_teamB_player_with_frisbee[] = {
+                  0b11111,
+                  0b10101,
+                  0b01010,
+                  0b00100,
+                  0b01110,
+                  0b11111,
+                  0b01010,
+                  0b11111
+                };
+
+byte frisbee[] = {
+                  0b01110,
+                  0b11111,
+                  0b11111,
+                  0b11111,
+                  0b01110,
+                  0b00000,
+                  0b00000,
+                  0b00000
+                };
+
+byte frisbee_target[] = {
+                  0b01110,
+                  0b10001,
+                  0b10001,
+                  0b10001,
+                  0b01110,
+                  0b00000,
+                  0b00000,
+                  0b00000
+                };
+
+
+
+
+unsigned short frisbee_steps[15][2];
+
+
+unsigned short compute_frisbee_target_and_route(unsigned short current_fisbee_x_position, unsigned short current_fisbee_y_position);
+unsigned short random_generator(unsigned short modulo);
+
+unsigned short compute_frisbee_target_and_route(unsigned short current_fisbee_x_position, unsigned short current_fisbee_y_position) {
+
+
+
+    unsigned short x_step_size, y_step_size;
+    unsigned short number_of_steps;
+    unsigned short target_x, target_y;
+
+
+
+
+
+    while(1) {
+
+        target_x = random_generator(16) + 1;
+        target_y = random_generator(4) + 1;
+
+
+        if (target_x < current_fisbee_x_position)
+            x_step_size = current_fisbee_x_position - target_x;
+        else
+            x_step_size = target_x - current_fisbee_x_position;
+
+
+        if (target_y < current_fisbee_y_position)
+            y_step_size = current_fisbee_y_position - target_y;
+        else
+            y_step_size = target_y - current_fisbee_y_position;
+
+
+        if (x_step_size <= 2 && y_step_size <= 2)
+            continue;
+
+
+        if (x_step_size > y_step_size)
+            number_of_steps = x_step_size;
+        else
+            number_of_steps = y_step_size;
+
+        break;
+    }
+# 168 "./the3.h"
+    unsigned short x = current_fisbee_x_position;
+    if (target_x < current_fisbee_x_position) {
+        for (unsigned short i = 0; i < x_step_size; i++) {
+            x = x - 1;
+            frisbee_steps[i][0] = x;
+        }
+    }
+    else {
+        for (unsigned short i = 0; i < x_step_size; i++) {
+            x = x + 1;
+            frisbee_steps[i][0] = x;
+        }
+    }
+    for (unsigned short i = x_step_size; i < number_of_steps; i++)
+        frisbee_steps[i][0] = x;
+
+
+    unsigned short y = current_fisbee_y_position;
+    if (target_y < current_fisbee_y_position) {
+        for (unsigned short i = 0; i < y_step_size; i++) {
+            y = y - 1;
+            frisbee_steps[i][1] = y;
+        }
+    }
+    else {
+        for (unsigned short i = 0; i < y_step_size; i++) {
+            y = y + 1;
+            frisbee_steps[i][1] = y;
+        }
+    }
+    for (unsigned short i = y_step_size; i < number_of_steps; i++)
+        frisbee_steps[i][1] = y;
+
+    return number_of_steps;
+}
+
+unsigned short random_generator(unsigned short modulo) {
+
+
+
+
+}
+# 10 "newmain.c" 2
 # 1 "/opt/microchip/xc8/v2.30/pic/include/c99/string.h" 1 3
 # 25 "/opt/microchip/xc8/v2.30/pic/include/c99/string.h" 3
 # 1 "/opt/microchip/xc8/v2.30/pic/include/c99/bits/alltypes.h" 1 3
@@ -4659,7 +4846,7 @@ size_t strxfrm_l (char *restrict, const char *restrict, size_t, locale_t);
 
 
 void *memccpy (void *restrict, const void *restrict, int, size_t);
-# 10 "newmain.c" 2
+# 11 "newmain.c" 2
 # 1 "/opt/microchip/xc8/v2.30/pic/include/c99/stdio.h" 1 3
 # 24 "/opt/microchip/xc8/v2.30/pic/include/c99/stdio.h" 3
 # 1 "/opt/microchip/xc8/v2.30/pic/include/c99/bits/alltypes.h" 1 3
@@ -4798,20 +4985,35 @@ char *ctermid(char *);
 
 
 char *tempnam(const char *, const char *);
-# 11 "newmain.c" 2
+# 12 "newmain.c" 2
 
 volatile char CONVERT=0;
 
-unsigned char character[8] = {
+unsigned char empty[8] = {
   0b00000,
   0b00000,
-  0b01010,
-  0b11111,
-  0b11111,
-  0b01110,
-  0b00100,
   0b00000,
+  0b00000,
+  0b00000,
+  0b00000,
+  0b00000,
+  0b00000
 };
+unsigned char digits[10] = {
+    0b00111111,
+    0b00000110,
+    0b01011011,
+    0b01001111,
+    0b01100110,
+    0b01101101,
+    0b01111101,
+    0b00000111,
+    0b01111111,
+    0b01101111
+};
+
+
+unsigned char dash = 0b01000000;
 
 typedef struct {
     int x;
@@ -4819,18 +5021,73 @@ typedef struct {
 } Position;
 
 typedef struct {
-    Position player_positions[4];
-    Position frisbee_position;
+    Position player_positions[4] ;
+    Position frisbee_position ;
     int selected_player;
     int teamA_score;
     int teamB_score;
     int game_mode;
 } GameState;
 
-GameState gameState;
+GameState gameState = {
+    .player_positions = {
+        {4,2},
+        {3,3},
+        {14,2},
+        {14,3}
+    },
+    .frisbee_position = {9,2},
+    .game_mode = 0,
+    .teamA_score = 0,
+    .teamB_score = 0,
+    .selected_player = 0,
+
+};
+
+volatile int display_state = 0;
+
+void updatePlayerPositionOnLCD(int oldX, int oldY, int newX, int newY, int selectedPlayer)
+{
+    printf("Updating player position from (%d, %d) to (%d, %d)\n", oldX, oldY, newX, newY);
+
+    LCDAddSpecialCharacter(selectedPlayer, empty);
+    LCDGoto(oldX, oldY);
+    LCDDat(selectedPlayer);
+
+
+    LCDAddSpecialCharacter(selectedPlayer, selectedPlayer < 2 ? selected_teamA_player : selected_teamB_player);
+    LCDGoto(newX, newY);
+    LCDDat(selectedPlayer);
+}
 
 void __attribute__((picinterrupt(("high_priority")))) FNC()
 {
+
+    if (TMR0IF) {
+        TMR0IF = 0;
+        TMR0 = 100;
+
+        switch (display_state) {
+            case 0:
+                TRISA = 0b00000000;
+                PORTD = digits[gameState.teamA_score];
+                PORTA = 0b00001000;
+                break;
+            case 1:
+                TRISA = 0b00000000;
+                PORTD = dash;
+                LATA = 0b00010000;
+                break;
+            case 2:
+                TRISA = 0b00000000;
+                PORTD = digits[gameState.teamB_score];
+                LATA = 0b00100000;
+                break;
+        }
+
+        display_state = (display_state + 1) % 3;
+    }
+
     if(INTCONbits.INT0IF)
     {
 
@@ -4838,15 +5095,46 @@ void __attribute__((picinterrupt(("high_priority")))) FNC()
         INTCONbits.INT0IF = 0;
     }
 
-    else if(INTCON3bits.INT1IF)
+    if(INTCONbits.RBIF)
     {
 
-        gameState.selected_player = (gameState.selected_player + 1) % 4;
-        INTCON3bits.INT1IF = 0;
+        int oldX = gameState.player_positions[gameState.selected_player].x;
+        int oldY = gameState.player_positions[gameState.selected_player].y;
+
+
+        if(PORTBbits.RB4)
+        {
+            printf("Up button!!\n");
+            gameState.player_positions[gameState.selected_player].y--;
+        }
+        else if(PORTBbits.RB5)
+        {
+            gameState.player_positions[gameState.selected_player].y++;
+        }
+        else if(PORTBbits.RB6)
+        {
+            gameState.player_positions[gameState.selected_player].x--;
+        }
+        else if(PORTBbits.RB7)
+        {
+            gameState.player_positions[gameState.selected_player].x++;
+        }
+
+        updatePlayerPositionOnLCD(oldX, oldY,
+                                  gameState.player_positions[gameState.selected_player].x,
+                                  gameState.player_positions[gameState.selected_player].y,
+                                  gameState.selected_player);
+
+
+
+
+
+        INTCONbits.RBIF = 0;
     }
 
-
 }
+
+
 
 
 void main(void) {
@@ -4854,35 +5142,64 @@ void main(void) {
     initADC();
 
     InitLCD();
-
-
-    LCDStr("Helloo ");
-
-    LCDAddSpecialCharacter(0, character);
-    LCDGoto(8, 1);
+    LATB = 0;
+# 183 "newmain.c"
+    LCDAddSpecialCharacter(0, selected_teamA_player);
+    LCDAddSpecialCharacter(1, teamA_player);
+    LCDAddSpecialCharacter(2, teamB_player);
+    LCDAddSpecialCharacter(3, teamB_player);
+    LCDAddSpecialCharacter(4, frisbee);
+    LCDGoto(3, 2);
     LCDDat(0);
+    LCDGoto(3, 3);
+    LCDDat(1);
+
+    LCDGoto(14, 2);
+    LCDDat(2);
+
+    LCDGoto(14, 3);
+    LCDDat(3);
+
+    LCDGoto(9, 2);
+    LCDDat(4);
+
+
 
     char values[10] = {0};
 
     unsigned short convertion = 0;
-
     TRISBbits.RB0 = 1;
+    TRISBbits.RB4 = 1;
+    TRISBbits.RB5 = 1;
+    TRISBbits.RB6 = 1;
+    TRISBbits.RB7 = 1;
+
+
+    INTCONbits.RBIE = 1;
+
+
+    INTCONbits.RBIF = 0;
+
+
+
+
+
     INTCONbits.INT0IE = 1;
     INTCONbits.INT0IF = 0;
     INTCONbits.GIE = 1;
     INTCONbits.PEIE = 1;
+    INTCONbits.TMR0IE = 1;
 
-
-
+    T0CON = 0b11000111;
     while(1)
     {
         if(CONVERT == 1)
         {
             convertion = readADCChannel(0);
-            sprintf(values, "%d", convertion);
-            LCDCmd(0x01);
-            LCDGoto(5, 2);
-            LCDStr(values);
+
+
+
+
             CONVERT = 0;
         }
 
