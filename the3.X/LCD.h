@@ -50,9 +50,9 @@ void LCDCmd(unsigned char cmd) {
   LCD_RS = 0;
   LCD_PORT = cmd;
   LCD_EN = 1;
-  __delay_us(LCD_PULSE_TIME);
+//  __delay_us(LCD_PULSE_TIME);
   LCD_EN = 0;
-  __delay_us(LCD_PULSE_TIME);
+//  __delay_us(LCD_PULSE_TIME);
 }
 
 void LCDDat(unsigned char dat) {
@@ -60,9 +60,9 @@ void LCDDat(unsigned char dat) {
   LCD_RS = 1;
   LCD_PORT = dat;
   LCD_EN = 1;
-  __delay_us(LCD_PULSE_TIME);
+//  __delay_us(LCD_PULSE_TIME);
   LCD_EN = 0;
-  __delay_us(LCD_PULSE_TIME);
+//  __delay_us(LCD_PULSE_TIME);
   LCD_RS = 0;
 }
 
@@ -73,6 +73,7 @@ void LCDGoto(byte p_2, byte p_1) {
   if(p_1==1) {
     LCDCmd(ROW1+((p_2-1)%16));
   } 
+  else if (p_1==2){
     LCDCmd(ROW2+((p_2-1)%16));
   }
   else if (p_1==3){

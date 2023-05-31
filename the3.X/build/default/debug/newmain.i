@@ -4514,9 +4514,9 @@ void LCDCmd(unsigned char cmd) {
   PORTEbits.RE2 = 0;
   PORTD = cmd;
   PORTEbits.RE1 = 1;
-  _delay((unsigned long)((2000)*(40000000L/4000000.0)));
+
   PORTEbits.RE1 = 0;
-  _delay((unsigned long)((2000)*(40000000L/4000000.0)));
+
 }
 
 void LCDDat(unsigned char dat) {
@@ -4524,9 +4524,9 @@ void LCDDat(unsigned char dat) {
   PORTEbits.RE2 = 1;
   PORTD = dat;
   PORTEbits.RE1 = 1;
-  _delay((unsigned long)((2000)*(40000000L/4000000.0)));
+
   PORTEbits.RE1 = 0;
-  _delay((unsigned long)((2000)*(40000000L/4000000.0)));
+
   PORTEbits.RE2 = 0;
 }
 
@@ -4537,6 +4537,7 @@ void LCDGoto(byte p_2, byte p_1) {
   if(p_1==1) {
     LCDCmd(0x80 +((p_2-1)%16));
   }
+  else if (p_1==2){
     LCDCmd(0xC0 +((p_2-1)%16));
   }
   else if (p_1==3){
@@ -4705,14 +4706,14 @@ unsigned short frisbee_steps[15][2];
 
 unsigned short compute_frisbee_target_and_route(unsigned short current_fisbee_x_position, unsigned short current_fisbee_y_position);
 unsigned short random_generator(unsigned short modulo);
-
+unsigned short target_x, target_y;
 unsigned short compute_frisbee_target_and_route(unsigned short current_fisbee_x_position, unsigned short current_fisbee_y_position) {
 
 
 
     unsigned short x_step_size, y_step_size;
     unsigned short number_of_steps;
-    unsigned short target_x, target_y;
+
 
 
 
@@ -4792,7 +4793,7 @@ unsigned short random_generator(unsigned short modulo) {
     int timer_value = TMR1;
 
 
-    int pseudo_random = (timer_value % modulo) + 1;
+    int pseudo_random = (timer_value % modulo) ;
 
 
     int rotated_value = timer_value >> rotation;
@@ -5008,7 +5009,8 @@ volatile char gamepad_button_pressed=0;
 byte previous_portb = 0;
 byte debounce_flag = 0;
 int frisbee_held = 0;
-
+int current_step = 0;
+int blink_flag = 0;
 unsigned char empty[8] = {
     0b00000000,
     0b00000000,
@@ -5136,7 +5138,6 @@ int frisbeeHeld(){
     int selected_player = gameState.selected_player;
     if (gameState.frisbee_position.x == gameState.player_positions[selected_player].x
             && gameState.frisbee_position.y == gameState.player_positions[selected_player].y) {
-        gameState.game_mode = 0;
         frisbee_held = 1;
         return 1;
     }
@@ -5154,7 +5155,6 @@ int hasPlayerLeftFrisbeeLocation() {
 
     if (gameState.player_positions[selected_player].x != gameState.frisbee_position.x ||
         gameState.player_positions[selected_player].y != gameState.frisbee_position.y){
-        gameState.game_mode = 1;
         frisbee_held = 0;
         return 1;
     }
@@ -5284,7 +5284,7 @@ void initRegisters(){
     INTCONbits.TMR0IE = 1;
 
     T0CON = 0b10000111;
-    TMR0 = 62611;
+    TMR0 = 59625;
 
 
 
@@ -5292,6 +5292,16 @@ void initRegisters(){
     TMR1 = 0;
     T1CONbits.TMR1ON = 1;
 
+
+    T2CON = 0;
+    TMR2 = 159;
+    T2CONbits.T2CKPS = 0b11;
+
+    T2CONbits.T2OUTPS0 = 1;
+    T2CONbits.T2OUTPS1 = 1;
+    T2CONbits.T2OUTPS2 = 1;
+    T2CONbits.T2OUTPS3 = 1;
+    T2CONbits.TMR2ON = 1;
 
     LATB = 0;
     PORTB;;
@@ -5332,13 +5342,19 @@ void switchSelectedPlayer(){
     LATB = 0;
 
 }
-
+int isThereAnyPlayer(int x, int y){
+   for (int i=0 ; i<4; i++){
+       if (gameState.player_positions[i].x == x && gameState.player_positions[i].y == y){
+           return 1;
+       }
+   }
+   return 0;
+}
 
 void throwFrisbee(){
     frisbee_held = 0;
-    int randomX,randomY,selected_player, selected_player_x, selected_player_y;
-    randomX = random_generator(16);
-    randomY = random_generator(4);
+    int selected_player, selected_player_x, selected_player_y;
+
     selected_player = gameState.selected_player;
     selected_player_x = gameState.player_positions[selected_player].x;
     selected_player_y = gameState.player_positions[selected_player].y;
@@ -5346,14 +5362,90 @@ void throwFrisbee(){
 
     LCDGoto(selected_player_x,selected_player_y);
     LCDStr(" ");
-    LCDDat(selected_player < 2 ? 1:3);
+    LCDGoto(selected_player_x,selected_player_y);
+    LCDDat(selected_player < 2 ? 0:2);
 
-    LCDGoto(randomX,randomY);
+    compute_frisbee_target_and_route(gameState.frisbee_position.x,gameState.frisbee_position.y);
+
+    LCDGoto(target_x,target_y);
     LCDDat(7);
+    gameState.game_mode = 0;
+    T0CONbits.TMR0ON = 1;
+
+
+}
+
+int ifSelectedPlayerHold(){
+    int selected_player = gameState.selected_player;
+    return gameState.frisbee_position.x == gameState.player_positions[selected_player].x &&
+    gameState.frisbee_position.y == gameState.player_positions[selected_player].y;
+}
+
+void moveFrisbee(){
+
+    if( current_step == 16 || (frisbee_steps[current_step][0] == target_x && frisbee_steps[current_step][1] == target_y)){
+
+        gameState.game_mode = 1;
+        current_step = 0;
+
+        if(!isThereAnyPlayer(gameState.frisbee_position.x, gameState.frisbee_position.y)){
+            LCDGoto(gameState.frisbee_position.x,gameState.frisbee_position.y);
+            LCDStr(" ");
+        }
+        gameState.frisbee_position.x = target_x;
+        gameState.frisbee_position.y = target_y;
+        if(ifSelectedPlayerHold()){
+            gameState.teamA_score += gameState.selected_player < 2 ? 1:0;
+            gameState.teamB_score += gameState.selected_player >= 2 ? 1:0;
+
+            LCDGoto(target_x,target_y);
+            LCDDat (gameState.selected_player < 2 ? 5:6);
+
+            frisbee_held = 1;
+        }
+        else{
+            LCDGoto(target_x,target_y);
+            LCDDat(4);
+        }
 
 
 
-    gameState.game_mode = 1;
+        gameState.game_mode =1 ;
+        T0CONbits.TMR0ON = 0;
+        return;
+    }
+
+
+
+    if(current_step!=0 && !isThereAnyPlayer(gameState.frisbee_position.x, gameState.frisbee_position.y)){
+        LCDGoto(gameState.frisbee_position.x,gameState.frisbee_position.y);
+        LCDStr(" ");
+    }
+
+    gameState.frisbee_position.x = frisbee_steps[current_step][0] ;
+    gameState.frisbee_position.y = frisbee_steps[current_step][1] ;
+
+
+    if(!isThereAnyPlayer(gameState.frisbee_position.x, gameState.frisbee_position.y)){
+        LCDGoto(gameState.frisbee_position.x,gameState.frisbee_position.y);
+        LCDDat(4);
+    }
+
+    current_step++;
+}
+
+
+void blink (){
+    if (blink_flag){
+        LCDGoto(target_x,target_y);
+        LCDDat(7);
+        blink_flag = 0;
+    }
+    else{
+        LCDGoto(target_x,target_y);
+        LCDStr(" ");
+        blink_flag = 1;
+    }
 }
 
 
@@ -5363,7 +5455,22 @@ void __attribute__((picinterrupt(("high_priority")))) FNC()
 
     if (TMR0IF) {
         TMR0IF = 0;
-        TMR0 = 62611;
+        if(gameState.game_mode == 0) {
+            moveFrisbee();
+        }
+        TMR0 = 59625;
+    }
+
+    if (PIR1bits.TMR1IF) {
+        PIR1bits.TMR1IF = 0;
+    }
+
+    if (PIR1bits.TMR2IF) {
+        PIR1bits.TMR2IF = 0;
+        if (gameState.game_mode == 0){
+            blink();
+        }
+        TMR2 = 159;
 
     }
 
@@ -5379,7 +5486,7 @@ void __attribute__((picinterrupt(("high_priority")))) FNC()
     if(INTCON3bits.INT1IF) {
         _delay((unsigned long)((50)*(40000000L/4000.0)));
         INTCON3bits.INT1IF = 0;
-        if(gameState.game_mode == 0){
+        if(frisbee_held){
             return;
         }
         switchSelectedPlayer();
@@ -5391,9 +5498,7 @@ void __attribute__((picinterrupt(("high_priority")))) FNC()
         gamepadPressed();
     }
 
-    if(PIR1bits.TMR1IF) {
-        PIR1bits.TMR1IF = 0;
-    }
+
 
 }
 

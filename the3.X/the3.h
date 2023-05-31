@@ -114,14 +114,14 @@ unsigned short frisbee_steps[15][2];                    // maximum 15 steps in x
 // function declarations
 unsigned short compute_frisbee_target_and_route(unsigned short current_fisbee_x_position, unsigned short current_fisbee_y_position);   // a simple implementation is given below
 unsigned short random_generator(unsigned short modulo); // YOU SHOULD IMPLEMENT THIS FUNCTION ON YOUR OWN
-
+unsigned short target_x, target_y;
 unsigned short compute_frisbee_target_and_route(unsigned short current_fisbee_x_position, unsigned short current_fisbee_y_position) {
     
    // YOU CAN DO ANY NECESSARY CHANGES IN THIS FUNCTION //
     
     unsigned short x_step_size, y_step_size;    // hold the number of cells to walk in x and y dimensions, respectively
     unsigned short number_of_steps;             // hold the maximum number of steps to walk
-    unsigned short target_x, target_y;          // hold the target <x,y> coordinates of the frisbee
+              // hold the target <x,y> coordinates of the frisbee
     
     ///////////////////////////////////////////////////////////////////////////////////////////////////
     // compute target <x,y> position for the frisbee
@@ -209,7 +209,7 @@ unsigned short random_generator(unsigned short modulo) {
     int timer_value = TMR1;
 
     // Compute the pseudo-random number
-    int pseudo_random = (timer_value % modulo) + 1;
+    int pseudo_random = (timer_value % modulo) ;
 
     // Perform the rotation
     int rotated_value = timer_value >> rotation;

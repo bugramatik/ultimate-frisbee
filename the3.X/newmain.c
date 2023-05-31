@@ -12,24 +12,16 @@
 
 #define LCD_HORIZONTAL 16
 #define LCD_VERTICAL 4
-#define TIMER0_INITIAL_VALUE 62611
-
+#define TIMER0_INITIAL_VALUE 59625
+#define TIMER2_INITIAL_VALUE 159
 volatile char CONVERT=0;
 volatile char gamepad_button_pressed=0;
 byte previous_portb = 0;
 byte debounce_flag = 0;
 int frisbee_held = 0;
+int current_step = 0;
+int blink_flag = 0;
 
-unsigned char empty[8] = {
-    0b00000000,
-    0b00000000,
-    0b00000000,
-    0b00000000,
-    0b00000000,
-    0b00000000,
-    0b00000000,
-    0b00000000
-};
 unsigned char digits[10] = {
     0b00111111, // 0
     0b00000110, // 1
@@ -147,7 +139,6 @@ int frisbeeHeld(){
     int selected_player = gameState.selected_player;
     if (gameState.frisbee_position.x == gameState.player_positions[selected_player].x
             && gameState.frisbee_position.y == gameState.player_positions[selected_player].y) { // Player hold the frisbee
-        gameState.game_mode = 0; // Inctive mode
         frisbee_held = 1;
         return 1;
     }
@@ -165,7 +156,6 @@ int hasPlayerLeftFrisbeeLocation() {
     
     if (gameState.player_positions[selected_player].x != gameState.frisbee_position.x || 
         gameState.player_positions[selected_player].y != gameState.frisbee_position.y){ // Player released frisbee
-        gameState.game_mode = 1; // Active mode
         frisbee_held = 0;
         return 1;
     }
@@ -303,6 +293,16 @@ void initRegisters(){
     TMR1 = 0;
     T1CONbits.TMR1ON = 1; // Start Timer1
 
+//     Initialize Timer2
+    T2CON = 0; // Stop Timer2
+    TMR2 = TIMER2_INITIAL_VALUE; // Load the period register with the calculated value
+    T2CONbits.T2CKPS = 0b11; // Set the prescaler to 1:16
+    // Set the postscaler to 1:16
+    T2CONbits.T2OUTPS0 = 1; 
+    T2CONbits.T2OUTPS1 = 1; 
+    T2CONbits.T2OUTPS2 = 1; 
+    T2CONbits.T2OUTPS3 = 1; 
+    T2CONbits.TMR2ON = 1; // Start Timer2
     
     LATB = 0;
     PORTB;;
@@ -343,13 +343,19 @@ void switchSelectedPlayer(){
     LATB = 0;
     
 }
-
+int isThereAnyPlayer(int x, int y){
+   for (int i=0 ; i<4; i++){
+       if (gameState.player_positions[i].x == x && gameState.player_positions[i].y == y){
+           return 1;
+       }
+   } 
+   return 0;
+}
 
 void throwFrisbee(){
     frisbee_held = 0;
-    int randomX,randomY,selected_player, selected_player_x, selected_player_y;
-    randomX = random_generator(16);
-    randomY = random_generator(4);
+    int selected_player, selected_player_x, selected_player_y;
+
     selected_player = gameState.selected_player;
     selected_player_x = gameState.player_positions[selected_player].x;
     selected_player_y = gameState.player_positions[selected_player].y;
@@ -357,14 +363,90 @@ void throwFrisbee(){
     //Convert frisbee holder player to normal selected player
     LCDGoto(selected_player_x,selected_player_y);
     LCDStr(" ");
-    LCDDat(selected_player < 2 ? 1:3);
+    LCDGoto(selected_player_x,selected_player_y);
+    LCDDat(selected_player < 2 ? 0:2);
     
-    LCDGoto(randomX,randomY); //Display target, TODO: blinking, target should not colliding with any palyer
+    compute_frisbee_target_and_route(gameState.frisbee_position.x,gameState.frisbee_position.y); // Compute the road
+    
+    LCDGoto(target_x,target_y); //Display target, TODO: blinking, target should not colliding with any player
     LCDDat(7);
+    gameState.game_mode = 0; // When frisbee flys game is in Inactive mode
+    T0CONbits.TMR0ON = 1;
     
     
+}
+
+int ifSelectedPlayerHold(){
+    int selected_player = gameState.selected_player;
+    return gameState.frisbee_position.x == gameState.player_positions[selected_player].x && 
+    gameState.frisbee_position.y == gameState.player_positions[selected_player].y;
+}
+
+void moveFrisbee(){
+       
+    if( current_step == 16 || (frisbee_steps[current_step][0] == target_x && frisbee_steps[current_step][1] == target_y)){
+        //Frisbee reached to target
+        gameState.game_mode = 1;
+        current_step = 0;
+        
+        if(!isThereAnyPlayer(gameState.frisbee_position.x, gameState.frisbee_position.y)){ // It should not clear player
+            LCDGoto(gameState.frisbee_position.x,gameState.frisbee_position.y);
+            LCDStr(" ");
+        }
+        gameState.frisbee_position.x = target_x;
+        gameState.frisbee_position.y = target_y;
+        if(ifSelectedPlayerHold()){
+            gameState.teamA_score += gameState.selected_player < 2 ? 1:0;
+            gameState.teamB_score += gameState.selected_player >= 2 ? 1:0;
+            
+            LCDGoto(target_x,target_y);
+            LCDDat (gameState.selected_player < 2 ? 5:6);
+            
+            frisbee_held = 1;
+        }
+        else{
+            LCDGoto(target_x,target_y);
+            LCDDat(4);
+        }
+        
+       
+        
+        gameState.game_mode =1 ; // If frisbee reaches to the target, game is in active mode
+        T0CONbits.TMR0ON = 0; // If frisbee reaches to the target, game is in active mode
+        return;
+    }
     
-    gameState.game_mode = 1; // When frisbee reachs the target game should turn into active mode
+    
+    //Clear old frisbee location
+    if(current_step!=0 && !isThereAnyPlayer(gameState.frisbee_position.x, gameState.frisbee_position.y)){ // It should not clear thrower
+        LCDGoto(gameState.frisbee_position.x,gameState.frisbee_position.y);
+        LCDStr(" ");
+    }
+    
+    gameState.frisbee_position.x = frisbee_steps[current_step][0] ;
+    gameState.frisbee_position.y = frisbee_steps[current_step][1] ;
+   
+    // Take the new step and print it
+    if(!isThereAnyPlayer(gameState.frisbee_position.x, gameState.frisbee_position.y)){ // If there is a player
+        LCDGoto(gameState.frisbee_position.x,gameState.frisbee_position.y);
+        LCDDat(4);
+    }
+    
+    current_step++; 
+}
+
+
+void blink (){
+    if (blink_flag){
+        LCDGoto(target_x,target_y);
+        LCDDat(7);
+        blink_flag = 0;
+    }
+    else{
+        LCDGoto(target_x,target_y);
+        LCDStr(" ");
+        blink_flag = 1;
+    }
 }
 
 
@@ -372,12 +454,27 @@ void __interrupt(high_priority) FNC()
 {   
     
     
-    if (TMR0IF) { // Check if Timer0 interrupt
+    if (TMR0IF) { // For frisbee flying
         TMR0IF = 0; // Clear the interrupt flag
+        if(gameState.game_mode == 0) { //If frisbee is flying
+            moveFrisbee();
+        }
         TMR0 = TIMER0_INITIAL_VALUE; // Reset the timer count
-        
+    }
+    
+    if (PIR1bits.TMR1IF) { // For random generator
+        PIR1bits.TMR1IF = 0;
     }
 
+    if (PIR1bits.TMR2IF) { // For target blinking
+        PIR1bits.TMR2IF = 0;
+        if (gameState.game_mode == 0){ // If frisbee flying
+            blink();
+        }
+        TMR2 = TIMER2_INITIAL_VALUE;
+
+    }
+    
     if(INTCONbits.INT0IF) { // RB0 button was pressed, throw the frisbee
         __delay_ms(50);
         INTCONbits.INT0IF = 0;
@@ -390,7 +487,7 @@ void __interrupt(high_priority) FNC()
     if(INTCON3bits.INT1IF) { // RB1 button was pressed, change the player
         __delay_ms(50);
         INTCON3bits.INT1IF = 0;
-        if(gameState.game_mode == 0){ //If game is in Inactive mode don't do anything
+        if(frisbee_held){ //If player is holding the frisbee don't switch player
             return;
         }
         switchSelectedPlayer();
@@ -402,9 +499,7 @@ void __interrupt(high_priority) FNC()
         gamepadPressed();
     }
     
-    if(PIR1bits.TMR1IF) { // For random generator
-        PIR1bits.TMR1IF = 0;
-    }
+    
     
 }
 
