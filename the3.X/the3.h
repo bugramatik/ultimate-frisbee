@@ -203,9 +203,22 @@ unsigned short compute_frisbee_target_and_route(unsigned short current_fisbee_x_
 
 unsigned short random_generator(unsigned short modulo) {
     
-    // THE IMPLEMENTATION TOTALLY BELONGS TO YOU. You can follow the steps given in the3.pdf
-    // You can define different rotation amounts in bits for different types of needs for random integer
-    
+    unsigned short rotation = 2;
+
+    // Get the current value of the timer
+    int timer_value = TMR1;
+
+    // Compute the pseudo-random number
+    int pseudo_random = (timer_value % modulo) + 1;
+
+    // Perform the rotation
+    int rotated_value = timer_value >> rotation;
+
+    // Update timer
+    TMR1 = rotated_value;
+
+    // Return the pseudo-random number
+    return pseudo_random;
 }
 
 #ifdef	__cplusplus

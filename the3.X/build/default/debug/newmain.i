@@ -29,7 +29,7 @@
 
 
 #pragma config CCP2MX = PORTC
-#pragma config PBADEN = ON
+#pragma config PBADEN = OFF
 #pragma config LPT1OSC = OFF
 #pragma config MCLRE = ON
 
@@ -4537,7 +4537,6 @@ void LCDGoto(byte p_2, byte p_1) {
   if(p_1==1) {
     LCDCmd(0x80 +((p_2-1)%16));
   }
-  else if (p_1==2){
     LCDCmd(0xC0 +((p_2-1)%16));
   }
   else if (p_1==3){
@@ -4787,9 +4786,22 @@ unsigned short compute_frisbee_target_and_route(unsigned short current_fisbee_x_
 
 unsigned short random_generator(unsigned short modulo) {
 
+    unsigned short rotation = 2;
 
 
+    int timer_value = TMR1;
 
+
+    int pseudo_random = (timer_value % modulo) + 1;
+
+
+    int rotated_value = timer_value >> rotation;
+
+
+    TMR1 = rotated_value;
+
+
+    return pseudo_random;
 }
 # 10 "newmain.c" 2
 # 1 "/opt/microchip/xc8/v2.30/pic/include/c99/string.h" 1 3
@@ -4987,17 +4999,25 @@ char *ctermid(char *);
 char *tempnam(const char *, const char *);
 # 12 "newmain.c" 2
 
+
+
+
+
 volatile char CONVERT=0;
+volatile char gamepad_button_pressed=0;
+byte previous_portb = 0;
+byte debounce_flag = 0;
+int frisbee_held = 0;
 
 unsigned char empty[8] = {
-  0b00000,
-  0b00000,
-  0b00000,
-  0b00000,
-  0b00000,
-  0b00000,
-  0b00000,
-  0b00000
+    0b00000000,
+    0b00000000,
+    0b00000000,
+    0b00000000,
+    0b00000000,
+    0b00000000,
+    0b00000000,
+    0b00000000
 };
 unsigned char digits[10] = {
     0b00111111,
@@ -5031,13 +5051,13 @@ typedef struct {
 
 GameState gameState = {
     .player_positions = {
-        {4,2},
+        {8,2},
         {3,3},
         {14,2},
         {14,3}
     },
     .frisbee_position = {9,2},
-    .game_mode = 0,
+    .game_mode = 1,
     .teamA_score = 0,
     .teamB_score = 0,
     .selected_player = 0,
@@ -5046,168 +5066,349 @@ GameState gameState = {
 
 volatile int display_state = 0;
 
-void updatePlayerPositionOnLCD(int oldX, int oldY, int newX, int newY, int selectedPlayer)
+void moveSelectedPlayerPositionOnLCD(int oldX, int oldY, int newX, int newY, int selectedPlayer)
 {
-    printf("Updating player position from (%d, %d) to (%d, %d)\n", oldX, oldY, newX, newY);
+    LATA = 0;
 
-    LCDAddSpecialCharacter(selectedPlayer, empty);
     LCDGoto(oldX, oldY);
-    LCDDat(selectedPlayer);
+    LCDStr(" ");
 
 
-    LCDAddSpecialCharacter(selectedPlayer, selectedPlayer < 2 ? selected_teamA_player : selected_teamB_player);
     LCDGoto(newX, newY);
-    LCDDat(selectedPlayer);
+    LCDDat(selectedPlayer < 2 ? 0:2);
 }
 
-void __attribute__((picinterrupt(("high_priority")))) FNC()
-{
-    static unsigned long last_interrupt_time = 0;
-    unsigned long interrupt_time = millis();
-    if(interrupt_time - last_interrupt_time > 200 && INTCONbits.RBIF)
-    {
+void setInitialState(){
 
-        int oldX = gameState.player_positions[gameState.selected_player].x;
-        int oldY = gameState.player_positions[gameState.selected_player].y;
-        gameState.teamA_score = (gameState.teamA_score+1)%6;
-
-
-        if(PORTBbits.RB4)
-        {
-            gameState.player_positions[gameState.selected_player].y--;
-        }
-        else if(PORTBbits.RB6)
-        {
-            gameState.player_positions[gameState.selected_player].y++;
-        }
-        else if(PORTBbits.RB7)
-        {
-            gameState.player_positions[gameState.selected_player].x--;
-        }
-        else if(PORTBbits.RB5)
-        {
-            gameState.player_positions[gameState.selected_player].x++;
-        }
-
-        updatePlayerPositionOnLCD(oldX, oldY,
-                                  gameState.player_positions[gameState.selected_player].x,
-                                  gameState.player_positions[gameState.selected_player].y,
-                                  gameState.selected_player);
-
-
-
-
-
-        INTCONbits.RBIF = 0;
-    }
-    if (TMR0IF) {
-        TMR0IF = 0;
-        TMR0 = 100;
-
-        switch (display_state) {
-            case 0:
-                TRISA = 0b00000000;
-                PORTD = digits[gameState.teamA_score];
-                PORTA = 0b00001000;
-                break;
-            case 1:
-                TRISA = 0b00000000;
-                PORTD = dash;
-                LATA = 0b00010000;
-                break;
-            case 2:
-                TRISA = 0b00000000;
-                PORTD = digits[gameState.teamB_score];
-                LATA = 0b00100000;
-                break;
-        }
-
-        display_state = (display_state + 1) % 3;
-    }
-
-    if(INTCONbits.INT0IF)
-    {
-
-        CONVERT = 1;
-        INTCONbits.INT0IF = 0;
-    }
-
-     last_interrupt_time = interrupt_time;
-
-}
-
-
-
-
-void main(void) {
-
-    initADC();
-
-    InitLCD();
-    TRISB = 0;
-# 185 "newmain.c"
     LCDAddSpecialCharacter(0, selected_teamA_player);
     LCDAddSpecialCharacter(1, teamA_player);
-    LCDAddSpecialCharacter(2, teamB_player);
+    LCDAddSpecialCharacter(2, selected_teamB_player);
     LCDAddSpecialCharacter(3, teamB_player);
     LCDAddSpecialCharacter(4, frisbee);
-    LCDGoto(3, 2);
+    LCDAddSpecialCharacter(5, selected_teamA_player_with_frisbee);
+    LCDAddSpecialCharacter(6, selected_teamB_player_with_frisbee);
+    LCDAddSpecialCharacter(7,frisbee_target);
+
+    LCDGoto(8, 2);
     LCDDat(0);
+
     LCDGoto(3, 3);
     LCDDat(1);
 
     LCDGoto(14, 2);
-    LCDDat(2);
+    LCDDat(3);
 
     LCDGoto(14, 3);
     LCDDat(3);
 
     LCDGoto(9, 2);
     LCDDat(4);
+}
 
 
 
-    char values[10] = {0};
 
-    unsigned short convertion = 0;
+void display_7seg() {
+    TRISA = 0;
+    LATA = 0b00001000;
+    LATD = digits[gameState.teamA_score];
+    _delay((unsigned long)((1)*(40000000L/4000.0)));
+    LATA = 0b00010000;
+    LATD = dash;
+    _delay((unsigned long)((1)*(40000000L/4000.0)));
+    LATA = 0b00100000;
+    LATD = digits[gameState.teamB_score];
+    _delay((unsigned long)((1)*(40000000L/4000.0)));
+}
+
+
+int isThereOtherPlayer(int oldX, int oldY){
+    for (int i = 0; i < 4; i++) {
+        if (gameState.player_positions[i].x == oldX && gameState.player_positions[i].y == oldY) {
+            return 1;
+        }
+    }
+    return 0;
+}
+
+
+int frisbeeHeld(){
+    int selected_player = gameState.selected_player;
+    if (gameState.frisbee_position.x == gameState.player_positions[selected_player].x
+            && gameState.frisbee_position.y == gameState.player_positions[selected_player].y) {
+        gameState.game_mode = 0;
+        frisbee_held = 1;
+        return 1;
+    }
+
+    return 0;
+}
+
+
+int hasPlayerLeftFrisbeeLocation() {
+    if (!frisbee_held){
+        return 0;
+    }
+
+    int selected_player = gameState.selected_player;
+
+    if (gameState.player_positions[selected_player].x != gameState.frisbee_position.x ||
+        gameState.player_positions[selected_player].y != gameState.frisbee_position.y){
+        gameState.game_mode = 1;
+        frisbee_held = 0;
+        return 1;
+    }
+    return 0;
+}
+
+
+void frisbeeHeldOnLCD(){
+    int frisbeeX, frisbeeY, selected_player;
+    frisbeeX = gameState.frisbee_position.x;
+    frisbeeY = gameState.frisbee_position.y;
+    selected_player = gameState.selected_player;
+    LCDGoto(frisbeeX,frisbeeY);
+    LCDStr(" ");
+
+    LCDGoto(frisbeeX,frisbeeY);
+    LCDDat(selected_player < 2 ? 5:6);
+
+}
+
+
+void frisbeeReleasedOnLCD(){
+    int frisbeeX, frisbeeY, selected_player;
+    frisbeeX = gameState.frisbee_position.x;
+    frisbeeY = gameState.frisbee_position.y;
+    selected_player = gameState.selected_player;
+    LCDGoto(frisbeeX,frisbeeY);
+    LCDStr(" ");
+
+    LCDGoto(frisbeeX,frisbeeY);
+    LCDDat(4);
+}
+
+void gamepadPressed() {
+    byte current_portb = PORTB;;
+    _delay((unsigned long)((1)*(40000000L/4000.0)));
+    int oldX = gameState.player_positions[gameState.selected_player].x;
+    int oldY = gameState.player_positions[gameState.selected_player].y;
+
+
+
+
+    if (((previous_portb & 0b00010000) == 0b00010000) && ((current_portb & 0b00010000) == 0))
+    {
+        if (gameState.player_positions[gameState.selected_player].y == 1){
+            return;
+        }
+        if (isThereOtherPlayer(oldX,oldY-1)){
+            return;
+        }
+
+        gameState.player_positions[gameState.selected_player].y--;
+    } else if (((previous_portb & 0b01000000) == 0b01000000) && ((current_portb & 0b01000000) == 0))
+    {
+        if (gameState.player_positions[gameState.selected_player].y == 4){
+            return;
+        }
+        if (isThereOtherPlayer(oldX,oldY+1)){
+            return;
+        }
+        gameState.player_positions[gameState.selected_player].y++;
+    } else if (((previous_portb & 0b10000000) == 0b10000000) && ((current_portb & 0b10000000) == 0))
+    {
+        if (gameState.player_positions[gameState.selected_player].x == 1) {
+            return;
+        }
+        if (isThereOtherPlayer(oldX-1,oldY)){
+            return;
+        }
+        gameState.player_positions[gameState.selected_player].x--;
+    } else if (((previous_portb & 0b00100000) == 0b00100000) && ((current_portb & 0b00100000) == 0))
+    {
+        if (gameState.player_positions[gameState.selected_player].x == 16) {
+            return;
+        }
+        if (isThereOtherPlayer(oldX+1,oldY)){
+            return;
+        }
+        gameState.player_positions[gameState.selected_player].x++;
+    }
+    else{
+
+    }
+    previous_portb = current_portb;
+
+
+    moveSelectedPlayerPositionOnLCD(oldX, oldY,
+            gameState.player_positions[gameState.selected_player].x,
+            gameState.player_positions[gameState.selected_player].y,
+            gameState.selected_player);
+    if (frisbeeHeld()) {
+        frisbeeHeldOnLCD();
+    }
+    if (hasPlayerLeftFrisbeeLocation()) {
+        frisbeeReleasedOnLCD();
+    }
+
+}
+
+void initRegisters(){
+
+
+    TRISB = 0;
     TRISBbits.RB0 = 1;
+    TRISBbits.RB1 = 1;
     TRISBbits.RB4 = 1;
     TRISBbits.RB5 = 1;
     TRISBbits.RB6 = 1;
     TRISBbits.RB7 = 1;
-
-
-    INTCONbits.RBIE = 1;
-
+    LATB = 0;
 
     INTCONbits.RBIF = 0;
-
-
-
-
+    INTCONbits.RBIE = 1;
+    LATB = 0;
 
     INTCONbits.INT0IE = 1;
     INTCONbits.INT0IF = 0;
+    LATB = 0;
+
+    INTCON3bits.INT1IE = 1;
+    INTCON3bits.INT1IF = 0;
+
+
     INTCONbits.GIE = 1;
     INTCONbits.PEIE = 1;
+
     INTCONbits.TMR0IE = 1;
 
-    T0CON = 0b11000111;
-    while(1)
-    {
-        if(CONVERT == 1)
-        {
-            convertion = readADCChannel(0);
+    T0CON = 0b10000111;
+    TMR0 = 62611;
 
 
 
+    T1CON = 0;
+    TMR1 = 0;
+    T1CONbits.TMR1ON = 1;
 
-            CONVERT = 0;
+
+    LATB = 0;
+    PORTB;;
+}
+
+void switchSelectedPlayer(){
+    PORTB;;
+    LATB = 0;
+    LATA = 0;
+    LATD = 0;
+
+
+    int oldX, oldY,newX,newY;
+    int selected_player = gameState.selected_player;
+
+    oldX = gameState.player_positions[selected_player].x;
+    oldY = gameState.player_positions[selected_player].y;
+
+
+    LCDGoto(oldX,oldY);
+    LCDStr(" ");
+    LCDGoto(oldX,oldY);
+    LCDDat (selected_player < 2 ? 1:3);
+
+
+    selected_player = (selected_player+1) % 4;
+    gameState.selected_player = selected_player;
+
+    newX = gameState.player_positions[selected_player].x;
+    newY = gameState.player_positions[selected_player].y;
+
+
+    LCDGoto(newX,newY);
+    LCDStr(" ");
+    LCDGoto(newX,newY);
+    LCDDat (selected_player < 2 ? 0:2);
+
+    LATB = 0;
+
+}
+
+
+void throwFrisbee(){
+    frisbee_held = 0;
+    int randomX,randomY,selected_player, selected_player_x, selected_player_y;
+    randomX = random_generator(16);
+    randomY = random_generator(4);
+    selected_player = gameState.selected_player;
+    selected_player_x = gameState.player_positions[selected_player].x;
+    selected_player_y = gameState.player_positions[selected_player].y;
+
+
+    LCDGoto(selected_player_x,selected_player_y);
+    LCDStr(" ");
+    LCDDat(selected_player < 2 ? 1:3);
+
+    LCDGoto(randomX,randomY);
+    LCDDat(7);
+
+
+
+    gameState.game_mode = 1;
+}
+
+
+void __attribute__((picinterrupt(("high_priority")))) FNC()
+{
+
+
+    if (TMR0IF) {
+        TMR0IF = 0;
+        TMR0 = 62611;
+
+    }
+
+    if(INTCONbits.INT0IF) {
+        _delay((unsigned long)((50)*(40000000L/4000.0)));
+        INTCONbits.INT0IF = 0;
+        if(frisbee_held){
+            throwFrisbee();
         }
 
     }
 
+    if(INTCON3bits.INT1IF) {
+        _delay((unsigned long)((50)*(40000000L/4000.0)));
+        INTCON3bits.INT1IF = 0;
+        if(gameState.game_mode == 0){
+            return;
+        }
+        switchSelectedPlayer();
+    }
 
+    if(INTCONbits.RBIF) {
+        PORTB;;
+        INTCONbits.RBIF = 0;
+        gamepadPressed();
+    }
 
-    return;
+    if(PIR1bits.TMR1IF) {
+        PIR1bits.TMR1IF = 0;
+    }
+
+}
+
+void main(void) {
+
+    initADC();
+
+    InitLCD();
+
+    initRegisters();
+
+    setInitialState();
+
+    while(1)
+    {
+        display_7seg();
+    }
 }

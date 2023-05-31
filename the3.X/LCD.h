@@ -73,7 +73,6 @@ void LCDGoto(byte p_2, byte p_1) {
   if(p_1==1) {
     LCDCmd(ROW1+((p_2-1)%16));
   } 
-  else if (p_1==2){
     LCDCmd(ROW2+((p_2-1)%16));
   }
   else if (p_1==3){

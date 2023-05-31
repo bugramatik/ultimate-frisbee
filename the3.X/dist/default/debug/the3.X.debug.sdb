@@ -3,9 +3,7 @@
 [d edition pro ]
 [d chip 18F4620 ]
 [d frameptr 4065 ]
-"13 /home/bs2019/e2380871/Downloads/the3.X/ADC.h
-[v _readADCChannel readADCChannel `(us  1 e 2 0 ]
-"35
+"35 /home/bs2019/e2380871/Downloads/the3.X/ADC.h
 [v _initADC initADC `(v  1 e 1 0 ]
 "48 /home/bs2019/e2380871/Downloads/the3.X/LCD.h
 [v _LCDCmd LCDCmd `(v  1 e 1 0 ]
@@ -16,29 +14,14 @@
 "72
 [v _LCDGoto LCDGoto `(v  1 e 1 0 ]
 [v i2_LCDGoto LCDGoto `(v  1 e 1 0 ]
+"91
+[v _LCDStr LCDStr `(v  1 e 1 0 ]
 "108
 [v _InitLCD InitLCD `(v  1 e 1 0 ]
 "129
 [v _LCDAddSpecialCharacter LCDAddSpecialCharacter `(v  1 e 1 0 ]
-[v i2_LCDAddSpecialCharacter LCDAddSpecialCharacter `(v  1 e 1 0 ]
 "204 /home/bs2019/e2380871/Downloads/the3.X/the3.h
 [v _random_generator random_generator `(us  1 e 2 0 ]
-"1 /opt/microchip/xc8/v2.30/pic/sources/c99/common/abs.c
-[v _abs abs `(i  1 e 2 0 ]
-"9 /opt/microchip/xc8/v2.30/pic/sources/c99/common/aodiv.c
-[v ___aodiv __aodiv `(o  1 e 8 0 ]
-"9 /opt/microchip/xc8/v2.30/pic/sources/c99/common/aomod.c
-[v ___aomod __aomod `(o  1 e 8 0 ]
-"7 /opt/microchip/xc8/v2.30/pic/sources/c99/common/awmod.c
-[v ___awmod __awmod `(i  1 e 2 0 ]
-"72 /opt/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
-[v _pad pad `(i  1 s 2 pad ]
-"287
-[v _dtoa dtoa `(i  1 s 2 dtoa ]
-"692
-[v _vfpfcnvrt vfpfcnvrt `(i  1 s 2 vfpfcnvrt ]
-"1390
-[v _vfprintf vfprintf `(i  1 e 2 0 ]
 "4 /opt/microchip/xc8/v2.30/pic/sources/c99/common/fleq.c
 [v ___fleq __fleq `(b  1 e 0 0 ]
 "62 /opt/microchip/xc8/v2.30/pic/sources/c99/common/float.c
@@ -51,14 +34,8 @@
 [v ___ftmul __ftmul `(f  1 e 4 0 ]
 "19 /opt/microchip/xc8/v2.30/pic/sources/c99/common/ftsub.c
 [v ___ftsub __ftsub `(f  1 e 4 0 ]
-"8 /opt/microchip/xc8/v2.30/pic/sources/c99/common/nf_fputc.c
-[v _fputc fputc `(i  1 e 2 0 ]
-"8 /opt/microchip/xc8/v2.30/pic/sources/c99/common/nf_fputs.c
-[v _fputs fputs `(i  1 e 2 0 ]
-"5 /opt/microchip/xc8/v2.30/pic/sources/c99/common/printf.c
-[v _printf printf `(i  1 e 2 0 ]
-"7 /opt/microchip/xc8/v2.30/pic/sources/c99/common/putch.c
-[v _putch putch `(v  1 e 1 0 ]
+"7 /opt/microchip/xc8/v2.30/pic/sources/c99/common/lwmod.c
+[v ___lwmod __lwmod `(ui  1 e 2 0 ]
 "10 /opt/microchip/xc8/v2.30/pic/sources/c99/common/sprcadd.c
 [v ___fladd __fladd `(d  1 e 4 0 ]
 "245
@@ -67,17 +44,37 @@
 [v ___fldiv __fldiv `(d  1 e 4 0 ]
 "8 /opt/microchip/xc8/v2.30/pic/sources/c99/common/sprcmul.c
 [v ___flmul __flmul `(d  1 e 4 0 ]
-"5 /opt/microchip/xc8/v2.30/pic/sources/c99/common/strlen.c
-[v _strlen strlen `(ui  1 e 2 0 ]
 "15 /opt/microchip/xc8/v2.30/pic/sources/c99/common/Umul32.c
 [v ___lmul __lmul `(ul  1 e 4 0 ]
 "91 /opt/microchip/xc8/v2.30/pic/sources/c99/common/Umul64.c
 [v ___omul __omul `(uo  1 e 8 0 ]
-"72 /home/bs2019/e2380871/Downloads/the3.X/newmain.c
-[v _updatePlayerPositionOnLCD updatePlayerPositionOnLCD `(v  1 e 1 0 ]
-"86
+"80 /home/bs2019/e2380871/Downloads/the3.X/newmain.c
+[v _moveSelectedPlayerPositionOnLCD moveSelectedPlayerPositionOnLCD `(v  1 e 1 0 ]
+"92
+[v _setInitialState setInitialState `(v  1 e 1 0 ]
+"122
+[v _display_7seg display_7seg `(v  1 e 1 0 ]
+"136
+[v _isThereOtherPlayer isThereOtherPlayer `(i  1 e 2 0 ]
+"146
+[v _frisbeeHeld frisbeeHeld `(i  1 e 2 0 ]
+"159
+[v _hasPlayerLeftFrisbeeLocation hasPlayerLeftFrisbeeLocation `(i  1 e 2 0 ]
+"176
+[v _frisbeeHeldOnLCD frisbeeHeldOnLCD `(v  1 e 1 0 ]
+"190
+[v _frisbeeReleasedOnLCD frisbeeReleasedOnLCD `(v  1 e 1 0 ]
+"202
+[v _gamepadPressed gamepadPressed `(v  1 e 1 0 ]
+"268
+[v _initRegisters initRegisters `(v  1 e 1 0 ]
+"311
+[v _switchSelectedPlayer switchSelectedPlayer `(v  1 e 1 0 ]
+"348
+[v _throwFrisbee throwFrisbee `(v  1 e 1 0 ]
+"368
 [v _FNC FNC `IIH(v  1 e 1 0 ]
-"165
+"408
 [v _main main `(v  1 e 1 0 ]
 "40 /home/bs2019/e2380871/Downloads/the3.X/LCD.h
 [v _lcd_x lcd_x `uc  1 e 1 0 ]
@@ -90,45 +87,18 @@
 [v _selected_teamA_player selected_teamA_player `[8]uc  1 e 8 0 ]
 "53
 [v _selected_teamB_player selected_teamB_player `[8]uc  1 e 8 0 ]
+"65
+[v _selected_teamA_player_with_frisbee selected_teamA_player_with_frisbee `[8]uc  1 e 8 0 ]
+"76
+[v _selected_teamB_player_with_frisbee selected_teamB_player_with_frisbee `[8]uc  1 e 8 0 ]
 "87
 [v _frisbee frisbee `[8]uc  1 e 8 0 ]
+"98
+[v _frisbee_target frisbee_target `[8]uc  1 e 8 0 ]
 "112
 [v _frisbee_steps frisbee_steps `[15][2]us  1 e 60 0 ]
-"52 /opt/microchip/mplabx/v5.45/packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8/pic/include/proc/pic18f4620.h
-[v _PORTA PORTA `VEuc  1 e 1 @3968 ]
-[s S434 . 1 `uc 1 RB0 1 0 :1:0 
-`uc 1 RB1 1 0 :1:1 
-`uc 1 RB2 1 0 :1:2 
-`uc 1 RB3 1 0 :1:3 
-`uc 1 RB4 1 0 :1:4 
-`uc 1 RB5 1 0 :1:5 
-`uc 1 RB6 1 0 :1:6 
-`uc 1 RB7 1 0 :1:7 
-]
-"230
-[s S443 . 1 `uc 1 INT0 1 0 :1:0 
-`uc 1 INT1 1 0 :1:1 
-`uc 1 INT2 1 0 :1:2 
-`uc 1 CCP2 1 0 :1:3 
-`uc 1 KBI0 1 0 :1:4 
-`uc 1 KBI1 1 0 :1:5 
-`uc 1 KBI2 1 0 :1:6 
-`uc 1 KBI3 1 0 :1:7 
-]
-[s S452 . 1 `uc 1 AN12 1 0 :1:0 
-`uc 1 AN10 1 0 :1:1 
-`uc 1 AN8 1 0 :1:2 
-`uc 1 AN9 1 0 :1:3 
-`uc 1 AN11 1 0 :1:4 
-`uc 1 PGM 1 0 :1:5 
-`uc 1 PGC 1 0 :1:6 
-`uc 1 PGD 1 0 :1:7 
-]
-[s S461 . 1 `uc 1 . 1 0 :3:0 
-`uc 1 CCP2_PA2 1 0 :1:3 
-]
-[u S464 . 1 `S434 1 . 1 0 `S443 1 . 1 0 `S452 1 . 1 0 `S461 1 . 1 0 ]
-[v _PORTBbits PORTBbits `VES464  1 e 1 @3969 ]
+"189 /opt/microchip/mplabx/v5.45/packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8/pic/include/proc/pic18f4620.h
+[v _PORTB PORTB `VEuc  1 e 1 @3969 ]
 "535
 [v _PORTD PORTD `VEuc  1 e 1 @3971 ]
 [s S227 . 1 `uc 1 RE0 1 0 :1:0 
@@ -177,6 +147,10 @@
 [v _PORTEbits PORTEbits `VES268  1 e 1 @3972 ]
 "880
 [v _LATA LATA `VEuc  1 e 1 @3977 ]
+"992
+[v _LATB LATB `VEuc  1 e 1 @3978 ]
+"1216
+[v _LATD LATD `VEuc  1 e 1 @3980 ]
 "1380
 [v _TRISA TRISA `VEuc  1 e 1 @3986 ]
 [s S159 . 1 `uc 1 TRISA0 1 0 :1:0 
@@ -202,7 +176,7 @@
 [v _TRISAbits TRISAbits `VES177  1 e 1 @3986 ]
 "1602
 [v _TRISB TRISB `VEuc  1 e 1 @3987 ]
-[s S506 . 1 `uc 1 TRISB0 1 0 :1:0 
+[s S382 . 1 `uc 1 TRISB0 1 0 :1:0 
 `uc 1 TRISB1 1 0 :1:1 
 `uc 1 TRISB2 1 0 :1:2 
 `uc 1 TRISB3 1 0 :1:3 
@@ -212,8 +186,17 @@
 `uc 1 TRISB7 1 0 :1:7 
 ]
 "1634
-[u S524 . 1 `S506 1 . 1 0 `S434 1 . 1 0 ]
-[v _TRISBbits TRISBbits `VES524  1 e 1 @3987 ]
+[s S391 . 1 `uc 1 RB0 1 0 :1:0 
+`uc 1 RB1 1 0 :1:1 
+`uc 1 RB2 1 0 :1:2 
+`uc 1 RB3 1 0 :1:3 
+`uc 1 RB4 1 0 :1:4 
+`uc 1 RB5 1 0 :1:5 
+`uc 1 RB6 1 0 :1:6 
+`uc 1 RB7 1 0 :1:7 
+]
+[u S400 . 1 `S382 1 . 1 0 `S391 1 . 1 0 ]
+[v _TRISBbits TRISBbits `VES400  1 e 1 @3987 ]
 "2046
 [v _TRISD TRISD `VEuc  1 e 1 @3989 ]
 [s S328 . 1 `uc 1 TRISE0 1 0 :1:0 
@@ -313,11 +296,61 @@
 [v _ADRESL ADRESL `VEuc  1 e 1 @4035 ]
 "4662
 [v _ADRESH ADRESH `VEuc  1 e 1 @4036 ]
+"5224
+[v _T1CON T1CON `VEuc  1 e 1 @4045 ]
+[s S515 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 NOT_T1SYNC 1 0 :1:2 
+]
+"5257
+[s S518 . 1 `uc 1 TMR1ON 1 0 :1:0 
+`uc 1 TMR1CS 1 0 :1:1 
+`uc 1 nT1SYNC 1 0 :1:2 
+`uc 1 T1OSCEN 1 0 :1:3 
+`uc 1 T1CKPS 1 0 :2:4 
+`uc 1 T1RUN 1 0 :1:6 
+`uc 1 RD16 1 0 :1:7 
+]
+[s S526 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 T1SYNC 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 T1CKPS0 1 0 :1:4 
+`uc 1 T1CKPS1 1 0 :1:5 
+]
+[s S532 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 SOSCEN 1 0 :1:3 
+`uc 1 . 1 0 :3:4 
+`uc 1 T1RD16 1 0 :1:7 
+]
+[u S537 . 1 `S515 1 . 1 0 `S518 1 . 1 0 `S526 1 . 1 0 `S532 1 . 1 0 ]
+[v _T1CONbits T1CONbits `VES537  1 e 1 @4045 ]
+"5327
+[v _TMR1 TMR1 `VEus  1 e 2 @4046 ]
 "5856
 [v _T0CON T0CON `VEuc  1 e 1 @4053 ]
 "5933
 [v _TMR0 TMR0 `VEus  1 e 2 @4054 ]
-[s S385 . 1 `uc 1 RBIF 1 0 :1:0 
+[s S472 . 1 `uc 1 INT1IF 1 0 :1:0 
+`uc 1 INT2IF 1 0 :1:1 
+`uc 1 . 1 0 :1:2 
+`uc 1 INT1IE 1 0 :1:3 
+`uc 1 INT2IE 1 0 :1:4 
+`uc 1 . 1 0 :1:5 
+`uc 1 INT1IP 1 0 :1:6 
+`uc 1 INT2IP 1 0 :1:7 
+]
+"6239
+[s S481 . 1 `uc 1 INT1F 1 0 :1:0 
+`uc 1 INT2F 1 0 :1:1 
+`uc 1 . 1 0 :1:2 
+`uc 1 INT1E 1 0 :1:3 
+`uc 1 INT2E 1 0 :1:4 
+`uc 1 . 1 0 :1:5 
+`uc 1 INT1P 1 0 :1:6 
+`uc 1 INT2P 1 0 :1:7 
+]
+[u S490 . 1 `S472 1 . 1 0 `S481 1 . 1 0 ]
+[v _INTCON3bits INTCON3bits `VES490  1 e 1 @4080 ]
+[s S423 . 1 `uc 1 RBIF 1 0 :1:0 
 `uc 1 INT0IF 1 0 :1:1 
 `uc 1 TMR0IF 1 0 :1:2 
 `uc 1 RBIE 1 0 :1:3 
@@ -327,7 +360,7 @@
 `uc 1 GIE_GIEH 1 0 :1:7 
 ]
 "6406
-[s S394 . 1 `uc 1 . 1 0 :1:0 
+[s S432 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 INT0F 1 0 :1:1 
 `uc 1 T0IF 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -336,64 +369,47 @@
 `uc 1 PEIE 1 0 :1:6 
 `uc 1 GIE 1 0 :1:7 
 ]
-[s S403 . 1 `uc 1 . 1 0 :6:0 
+[s S441 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 GIEL 1 0 :1:6 
 `uc 1 GIEH 1 0 :1:7 
 ]
-[u S407 . 1 `S385 1 . 1 0 `S394 1 . 1 0 `S403 1 . 1 0 ]
-[v _INTCONbits INTCONbits `VES407  1 e 1 @4082 ]
+[u S445 . 1 `S423 1 . 1 0 `S432 1 . 1 0 `S441 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES445  1 e 1 @4082 ]
 "8172
 [v _TMR0IF TMR0IF `VEb  1 e 0 @32658 ]
-"55 /opt/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
-[v _flags flags `i  1 s 2 flags ]
-[v _prec prec `i  1 s 2 prec ]
-[v _width width `i  1 s 2 width ]
-"66
-[v _dbuf dbuf `[32]uc  1 s 32 dbuf ]
-"69
-[v _nout nout `i  1 s 2 nout ]
-"13 /home/bs2019/e2380871/Downloads/the3.X/newmain.c
+"17 /home/bs2019/e2380871/Downloads/the3.X/newmain.c
 [v _CONVERT CONVERT `VEuc  1 e 1 0 ]
-"15
-[v _empty empty `[8]uc  1 e 8 0 ]
-"25
+"18
+[v _gamepad_button_pressed gamepad_button_pressed `VEuc  1 e 1 0 ]
+"19
+[v _previous_portb previous_portb `uc  1 e 1 0 ]
+"21
+[v _frisbee_held frisbee_held `i  1 e 2 0 ]
+"33
 [v _digits digits `[10]uc  1 e 10 0 ]
-"39
-[v _dash dash `uc  1 e 1 0 ]
-[s S366 . 4 `i 1 x 2 0 `i 1 y 2 2 ]
-"55
-[s S369 . 28 `[4]S366 1 player_positions 16 0 `S366 1 frisbee_position 4 16 `i 1 selected_player 2 20 `i 1 teamA_score 2 22 `i 1 teamB_score 2 24 `i 1 game_mode 2 26 ]
-[v _gameState gameState `S369  1 e 28 0 ]
-"70
+[s S367 . 4 `i 1 x 2 0 `i 1 y 2 2 ]
+"63
+[s S370 . 28 `[4]S367 1 player_positions 16 0 `S367 1 frisbee_position 4 16 `i 1 selected_player 2 20 `i 1 teamA_score 2 22 `i 1 teamB_score 2 24 `i 1 game_mode 2 26 ]
+[v _gameState gameState `S370  1 e 28 0 ]
+"78
 [v _display_state display_state `VEi  1 e 2 0 ]
-"165
+"408
 [v _main main `(v  1 e 1 0 ]
 {
-"206
-[v main@values values `[10]uc  1 a 10 4 ]
-"249
+"422
 } 0
-"13 /home/bs2019/e2380871/Downloads/the3.X/ADC.h
-[v _readADCChannel readADCChannel `(us  1 e 2 0 ]
+"92
+[v _setInitialState setInitialState `(v  1 e 1 0 ]
 {
-[v readADCChannel@channel channel `uc  1 a 1 wreg ]
-[v readADCChannel@channel channel `uc  1 a 1 wreg ]
-"16
-[v readADCChannel@channel channel `uc  1 a 1 20 ]
-"32
-} 0
-"35
-[v _initADC initADC `(v  1 e 1 0 ]
-{
-"68
+"117
 } 0
 "72 /home/bs2019/e2380871/Downloads/the3.X/LCD.h
 [v _LCDGoto LCDGoto `(v  1 e 1 0 ]
 {
 [v LCDGoto@p_2 p_2 `uc  1 a 1 wreg ]
 [v LCDGoto@p_2 p_2 `uc  1 a 1 wreg ]
-[v LCDGoto@p_1 p_1 `uc  1 p 1 20 ]
-[v LCDGoto@p_2 p_2 `uc  1 a 1 0 ]
+[v LCDGoto@p_1 p_1 `uc  1 p 1 2 ]
+[v LCDGoto@p_2 p_2 `uc  1 a 1 3 ]
 "87
 } 0
 "129
@@ -401,12 +417,12 @@
 {
 [v LCDAddSpecialCharacter@character_index character_index `uc  1 a 1 wreg ]
 "136
-[v LCDAddSpecialCharacter@i i `uc  1 a 1 3 ]
+[v LCDAddSpecialCharacter@i i `uc  1 a 1 5 ]
 "129
 [v LCDAddSpecialCharacter@character_index character_index `uc  1 a 1 wreg ]
-[v LCDAddSpecialCharacter@data data `*.39uc  1 p 2 0 ]
+[v LCDAddSpecialCharacter@data data `*.39uc  1 p 2 2 ]
 "135
-[v LCDAddSpecialCharacter@character_index character_index `uc  1 a 1 2 ]
+[v LCDAddSpecialCharacter@character_index character_index `uc  1 a 1 4 ]
 "142
 } 0
 "58
@@ -414,10 +430,25 @@
 {
 [v LCDDat@dat dat `uc  1 a 1 wreg ]
 [v LCDDat@dat dat `uc  1 a 1 wreg ]
-[v LCDDat@dat dat `uc  1 a 1 19 ]
+[v LCDDat@dat dat `uc  1 a 1 1 ]
 "67
 } 0
-"108
+"268 /home/bs2019/e2380871/Downloads/the3.X/newmain.c
+[v _initRegisters initRegisters `(v  1 e 1 0 ]
+{
+"309
+} 0
+"35 /home/bs2019/e2380871/Downloads/the3.X/ADC.h
+[v _initADC initADC `(v  1 e 1 0 ]
+{
+"68
+} 0
+"122 /home/bs2019/e2380871/Downloads/the3.X/newmain.c
+[v _display_7seg display_7seg `(v  1 e 1 0 ]
+{
+"133
+} 0
+"108 /home/bs2019/e2380871/Downloads/the3.X/LCD.h
 [v _InitLCD InitLCD `(v  1 e 1 0 ]
 {
 "121
@@ -427,31 +458,114 @@
 {
 [v LCDCmd@cmd cmd `uc  1 a 1 wreg ]
 [v LCDCmd@cmd cmd `uc  1 a 1 wreg ]
-[v LCDCmd@cmd cmd `uc  1 a 1 19 ]
+[v LCDCmd@cmd cmd `uc  1 a 1 1 ]
 "56
 } 0
-"86 /home/bs2019/e2380871/Downloads/the3.X/newmain.c
+"368 /home/bs2019/e2380871/Downloads/the3.X/newmain.c
 [v _FNC FNC `IIH(v  1 e 1 0 ]
 {
-"94
-[v FNC@oldY oldY `i  1 a 2 115 ]
-"93
-[v FNC@oldX oldX `i  1 a 2 113 ]
-"89
-[v FNC@interrupt_time interrupt_time `ul  1 a 4 117 ]
-"88
-[v FNC@last_interrupt_time last_interrupt_time `ul  1 s 4 last_interrupt_time ]
-"160
+"406
 } 0
-"72
-[v _updatePlayerPositionOnLCD updatePlayerPositionOnLCD `(v  1 e 1 0 ]
+"348
+[v _throwFrisbee throwFrisbee `(v  1 e 1 0 ]
 {
-[v updatePlayerPositionOnLCD@oldX oldX `i  1 p 2 101 ]
-[v updatePlayerPositionOnLCD@oldY oldY `i  1 p 2 103 ]
-[v updatePlayerPositionOnLCD@newX newX `i  1 p 2 105 ]
-[v updatePlayerPositionOnLCD@newY newY `i  1 p 2 107 ]
-[v updatePlayerPositionOnLCD@selectedPlayer selectedPlayer `i  1 p 2 109 ]
-"84
+"350
+[v throwFrisbee@selected_player selected_player `i  1 a 2 27 ]
+[v throwFrisbee@selected_player_y selected_player_y `i  1 a 2 25 ]
+[v throwFrisbee@selected_player_x selected_player_x `i  1 a 2 23 ]
+[v throwFrisbee@randomY randomY `i  1 a 2 21 ]
+[v throwFrisbee@randomX randomX `i  1 a 2 19 ]
+"365
+} 0
+"204 /home/bs2019/e2380871/Downloads/the3.X/the3.h
+[v _random_generator random_generator `(us  1 e 2 0 ]
+{
+"209
+[v random_generator@timer_value timer_value `i  1 a 2 15 ]
+"215
+[v random_generator@rotated_value rotated_value `i  1 a 2 13 ]
+"212
+[v random_generator@pseudo_random pseudo_random `i  1 a 2 11 ]
+"204
+[v random_generator@modulo modulo `us  1 p 2 5 ]
+"222
+} 0
+"7 /opt/microchip/xc8/v2.30/pic/sources/c99/common/lwmod.c
+[v ___lwmod __lwmod `(ui  1 e 2 0 ]
+{
+"10
+[v ___lwmod@counter counter `uc  1 a 1 4 ]
+"7
+[v ___lwmod@dividend dividend `ui  1 p 2 0 ]
+[v ___lwmod@divisor divisor `ui  1 p 2 2 ]
+"25
+} 0
+"311 /home/bs2019/e2380871/Downloads/the3.X/newmain.c
+[v _switchSelectedPlayer switchSelectedPlayer `(v  1 e 1 0 ]
+{
+"319
+[v switchSelectedPlayer@selected_player selected_player `i  1 a 2 21 ]
+"318
+[v switchSelectedPlayer@newY newY `i  1 a 2 19 ]
+[v switchSelectedPlayer@newX newX `i  1 a 2 17 ]
+[v switchSelectedPlayer@oldY oldY `i  1 a 2 15 ]
+[v switchSelectedPlayer@oldX oldX `i  1 a 2 13 ]
+"345
+} 0
+"202
+[v _gamepadPressed gamepadPressed `(v  1 e 1 0 ]
+{
+"206
+[v gamepadPressed@oldY oldY `i  1 a 2 25 ]
+"205
+[v gamepadPressed@oldX oldX `i  1 a 2 23 ]
+"203
+[v gamepadPressed@current_portb current_portb `uc  1 a 1 27 ]
+"266
+} 0
+"80
+[v _moveSelectedPlayerPositionOnLCD moveSelectedPlayerPositionOnLCD `(v  1 e 1 0 ]
+{
+[v moveSelectedPlayerPositionOnLCD@oldX oldX `i  1 p 2 7 ]
+[v moveSelectedPlayerPositionOnLCD@oldY oldY `i  1 p 2 9 ]
+[v moveSelectedPlayerPositionOnLCD@newX newX `i  1 p 2 11 ]
+[v moveSelectedPlayerPositionOnLCD@newY newY `i  1 p 2 13 ]
+[v moveSelectedPlayerPositionOnLCD@selectedPlayer selectedPlayer `i  1 p 2 15 ]
+"90
+} 0
+"136
+[v _isThereOtherPlayer isThereOtherPlayer `(i  1 e 2 0 ]
+{
+"137
+[v isThereOtherPlayer@i i `i  1 a 2 8 ]
+"136
+[v isThereOtherPlayer@oldX oldX `i  1 p 2 0 ]
+[v isThereOtherPlayer@oldY oldY `i  1 p 2 2 ]
+"143
+} 0
+"159
+[v _hasPlayerLeftFrisbeeLocation hasPlayerLeftFrisbeeLocation `(i  1 e 2 0 ]
+{
+"164
+[v hasPlayerLeftFrisbeeLocation@selected_player selected_player `i  1 a 2 6 ]
+"173
+} 0
+"190
+[v _frisbeeReleasedOnLCD frisbeeReleasedOnLCD `(v  1 e 1 0 ]
+{
+"191
+[v frisbeeReleasedOnLCD@frisbeeY frisbeeY `i  1 a 2 11 ]
+[v frisbeeReleasedOnLCD@frisbeeX frisbeeX `i  1 a 2 9 ]
+"200
+} 0
+"176
+[v _frisbeeHeldOnLCD frisbeeHeldOnLCD `(v  1 e 1 0 ]
+{
+"177
+[v frisbeeHeldOnLCD@frisbeeY frisbeeY `i  1 a 2 13 ]
+[v frisbeeHeldOnLCD@frisbeeX frisbeeX `i  1 a 2 11 ]
+[v frisbeeHeldOnLCD@selected_player selected_player `i  1 a 2 7 ]
+"187
 } 0
 "72 /home/bs2019/e2380871/Downloads/the3.X/LCD.h
 [v i2_LCDGoto LCDGoto `(v  1 e 1 0 ]
@@ -462,18 +576,22 @@
 [v i2LCDGoto@p_2 p_2 `uc  1 a 1 3 ]
 "87
 } 0
-"129
-[v i2_LCDAddSpecialCharacter LCDAddSpecialCharacter `(v  1 e 1 0 ]
+"48
+[v i2_LCDCmd LCDCmd `(v  1 e 1 0 ]
 {
-[v i2LCDAddSpecialCharacter@character_index character_index `uc  1 a 1 wreg ]
-"136
-[v i2LCDAddSpecialCharacter@i i `uc  1 a 1 5 ]
-"129
-[v i2LCDAddSpecialCharacter@character_index character_index `uc  1 a 1 wreg ]
-[v i2LCDAddSpecialCharacter@data data `*.39uc  1 p 2 2 ]
-"135
-[v i2LCDAddSpecialCharacter@character_index character_index `uc  1 a 1 4 ]
-"142
+[v i2LCDCmd@cmd cmd `uc  1 a 1 wreg ]
+[v i2LCDCmd@cmd cmd `uc  1 a 1 wreg ]
+[v i2LCDCmd@cmd cmd `uc  1 a 1 1 ]
+"56
+} 0
+"91
+[v _LCDStr LCDStr `(v  1 e 1 0 ]
+{
+"92
+[v LCDStr@i i `uc  1 a 1 6 ]
+"91
+[v LCDStr@str str `*.32Cuc  1 p 2 2 ]
+"104
 } 0
 "58
 [v i2_LCDDat LCDDat `(v  1 e 1 0 ]
@@ -483,149 +601,10 @@
 [v i2LCDDat@dat dat `uc  1 a 1 1 ]
 "67
 } 0
-"48
-[v i2_LCDCmd LCDCmd `(v  1 e 1 0 ]
+"146 /home/bs2019/e2380871/Downloads/the3.X/newmain.c
+[v _frisbeeHeld frisbeeHeld `(i  1 e 2 0 ]
 {
-[v i2LCDCmd@cmd cmd `uc  1 a 1 wreg ]
-[v i2LCDCmd@cmd cmd `uc  1 a 1 wreg ]
-[v i2LCDCmd@cmd cmd `uc  1 a 1 1 ]
-"56
-} 0
-"5 /opt/microchip/xc8/v2.30/pic/sources/c99/common/printf.c
-[v _printf printf `(i  1 e 2 0 ]
-{
-"8
-[v printf@ap ap `[1]*.39v  1 a 2 99 ]
-"5
-[v printf@fmt fmt `*.25Cuc  1 p 2 87 ]
-"13
-} 0
-"1390 /opt/microchip/xc8/v2.30/pic/sources/c99/common/doprnt.c
-[v _vfprintf vfprintf `(i  1 e 2 0 ]
-{
-"1393
-[v vfprintf@cfmt cfmt `*.25uc  1 a 2 85 ]
-[s S1186 _IO_FILE 0 ]
-"1390
-[v vfprintf@fp fp `*.2S1186  1 p 2 79 ]
-[v vfprintf@fmt fmt `*.25Cuc  1 p 2 81 ]
-[v vfprintf@ap ap `*.39*.39v  1 p 2 83 ]
-"1404
-} 0
-"692
-[v _vfpfcnvrt vfpfcnvrt `(i  1 s 2 vfpfcnvrt ]
-{
-"696
-[v vfpfcnvrt@ll ll `o  1 a 8 71 ]
-[s S1186 _IO_FILE 0 ]
-"692
-[v vfpfcnvrt@fp fp `*.2S1186  1 p 2 63 ]
-[v vfpfcnvrt@fmt fmt `*.39*.25uc  1 p 2 65 ]
-[v vfpfcnvrt@ap ap `*.39*.39v  1 p 2 67 ]
-"1387
-} 0
-"287
-[v _dtoa dtoa `(i  1 s 2 dtoa ]
-{
-"290
-[v dtoa@n n `o  1 a 8 53 ]
-"289
-[v dtoa@i i `i  1 a 2 61 ]
-[v dtoa@s s `i  1 a 2 51 ]
-[v dtoa@w w `i  1 a 2 49 ]
-[v dtoa@p p `i  1 a 2 47 ]
-[s S1186 _IO_FILE 0 ]
-"287
-[v dtoa@fp fp `*.2S1186  1 p 2 27 ]
-[v dtoa@d d `o  1 p 8 29 ]
-"328
-} 0
-"72
-[v _pad pad `(i  1 s 2 pad ]
-{
-"74
-[v pad@w w `i  1 a 2 25 ]
-[v pad@i i `i  1 a 2 23 ]
-[s S1186 _IO_FILE 0 ]
-"72
-[v pad@fp fp `*.2S1186  1 p 2 16 ]
-[v pad@buf buf `*.39uc  1 p 2 18 ]
-[v pad@p p `i  1 p 2 20 ]
-"95
-} 0
-"5 /opt/microchip/xc8/v2.30/pic/sources/c99/common/strlen.c
-[v _strlen strlen `(ui  1 e 2 0 ]
-{
-"7
-[v strlen@a a `*.39Cuc  1 a 2 2 ]
-"5
-[v strlen@s s `*.39Cuc  1 p 2 0 ]
-"12
-} 0
-"8 /opt/microchip/xc8/v2.30/pic/sources/c99/common/nf_fputs.c
-[v _fputs fputs `(i  1 e 2 0 ]
-{
-"11
-[v fputs@i i `i  1 a 2 14 ]
-"10
-[v fputs@c c `uc  1 a 1 13 ]
-"8
-[v fputs@s s `*.39Cuc  1 p 2 9 ]
-[s S1169 _IO_FILE 6 `*.2uc 1 buffer 2 0 `i 1 count 2 2 `i 1 limit 2 4 ]
-[v fputs@fp fp `*.2S1169  1 p 2 11 ]
-"19
-} 0
-"8 /opt/microchip/xc8/v2.30/pic/sources/c99/common/nf_fputc.c
-[v _fputc fputc `(i  1 e 2 0 ]
-{
-[v fputc@c c `i  1 p 2 0 ]
-[s S1169 _IO_FILE 6 `*.2uc 1 buffer 2 0 `i 1 count 2 2 `i 1 limit 2 4 ]
-[v fputc@fp fp `*.2S1169  1 p 2 2 ]
-"24
-} 0
-"7 /opt/microchip/xc8/v2.30/pic/sources/c99/common/putch.c
-[v _putch putch `(v  1 e 1 0 ]
-{
-"9
-} 0
-"1 /opt/microchip/xc8/v2.30/pic/sources/c99/common/abs.c
-[v _abs abs `(i  1 e 2 0 ]
-{
-[v abs@a a `i  1 p 2 18 ]
-"4
-} 0
-"9 /opt/microchip/xc8/v2.30/pic/sources/c99/common/aomod.c
-[v ___aomod __aomod `(o  1 e 8 0 ]
-{
-"12
-[v ___aomod@sign sign `uc  1 a 1 17 ]
-[v ___aomod@counter counter `uc  1 a 1 16 ]
-"9
-[v ___aomod@dividend dividend `o  1 p 8 0 ]
-[v ___aomod@divisor divisor `o  1 p 8 8 ]
-"36
-} 0
-"9 /opt/microchip/xc8/v2.30/pic/sources/c99/common/aodiv.c
-[v ___aodiv __aodiv `(o  1 e 8 0 ]
-{
-"12
-[v ___aodiv@quotient quotient `o  1 a 8 18 ]
-"13
-[v ___aodiv@sign sign `uc  1 a 1 17 ]
-[v ___aodiv@counter counter `uc  1 a 1 16 ]
-"9
-[v ___aodiv@dividend dividend `o  1 p 8 0 ]
-[v ___aodiv@divisor divisor `o  1 p 8 8 ]
-"43
-} 0
-"7 /opt/microchip/xc8/v2.30/pic/sources/c99/common/awmod.c
-[v ___awmod __awmod `(i  1 e 2 0 ]
-{
-"10
-[v ___awmod@sign sign `uc  1 a 1 5 ]
-[v ___awmod@counter counter `uc  1 a 1 4 ]
-"7
-[v ___awmod@dividend dividend `i  1 p 2 0 ]
-[v ___awmod@divisor divisor `i  1 p 2 2 ]
-"34
+"147
+[v frisbeeHeld@selected_player selected_player `i  1 a 2 6 ]
+"156
 } 0

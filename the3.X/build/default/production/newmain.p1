@@ -183,33 +183,50 @@ Version 4.0 HI-TECH Software Intermediate Code
 "116 ./the3.h
 [; ;./the3.h: 116: unsigned short random_generator(unsigned short modulo);
 [v _random_generator `(us ~T0 @X0 0 ef1`us ]
-"41 newmain.c
-[; ;newmain.c: 41: typedef struct {
+"5327 /opt/microchip/mplabx/v5.45/packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8/pic/include/proc/pic18f4620.h
+[; ;/opt/microchip/mplabx/v5.45/packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8/pic/include/proc/pic18f4620.h: 5327: extern volatile unsigned short TMR1 __attribute__((address(0xFCE)));
+[v _TMR1 `Vus ~T0 @X0 0 e@4046 ]
+"49 newmain.c
+[; ;newmain.c: 49: typedef struct {
 [s S339 `i 1 `i 1 ]
 [n S339 . x y ]
-"46
-[; ;newmain.c: 46: typedef struct {
+"54
+[; ;newmain.c: 54: typedef struct {
 [s S340 `S339 -> 4 `i `S339 1 `i 1 `i 1 `i 1 `i 1 ]
 [n S340 . player_positions frisbee_position selected_player teamA_score teamB_score game_mode ]
-"111 /opt/microchip/xc8/v2.30/pic/include/c99/stdio.h
-[v _printf `(i ~T0 @X0 0 ev`*Cuc ]
-[t ~ __interrupt . k ]
-[t T39 __interrupt high_priority ]
-"8172 /opt/microchip/mplabx/v5.45/packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8/pic/include/proc/pic18f4620.h
-[; ;/opt/microchip/mplabx/v5.45/packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8/pic/include/proc/pic18f4620.h: 8172: extern volatile __bit TMR0IF __attribute__((address(0x7F92)));
-[v _TMR0IF `Vb ~T0 @X0 0 e@32658 ]
-"5933
-[; ;/opt/microchip/mplabx/v5.45/packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8/pic/include/proc/pic18f4620.h: 5933: extern volatile unsigned short TMR0 __attribute__((address(0xFD6)));
-[v _TMR0 `Vus ~T0 @X0 0 e@4054 ]
+"880 /opt/microchip/mplabx/v5.45/packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8/pic/include/proc/pic18f4620.h
+[; ;/opt/microchip/mplabx/v5.45/packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8/pic/include/proc/pic18f4620.h: 880: extern volatile unsigned char LATA __attribute__((address(0xF89)));
+[v _LATA `Vuc ~T0 @X0 0 e@3977 ]
 "1380
 [; ;/opt/microchip/mplabx/v5.45/packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8/pic/include/proc/pic18f4620.h: 1380: extern volatile unsigned char TRISA __attribute__((address(0xF92)));
 [v _TRISA `Vuc ~T0 @X0 0 e@3986 ]
-"52
-[; ;/opt/microchip/mplabx/v5.45/packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8/pic/include/proc/pic18f4620.h: 52: extern volatile unsigned char PORTA __attribute__((address(0xF80)));
-[v _PORTA `Vuc ~T0 @X0 0 e@3968 ]
-"880
-[; ;/opt/microchip/mplabx/v5.45/packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8/pic/include/proc/pic18f4620.h: 880: extern volatile unsigned char LATA __attribute__((address(0xF89)));
-[v _LATA `Vuc ~T0 @X0 0 e@3977 ]
+"1216
+[; ;/opt/microchip/mplabx/v5.45/packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8/pic/include/proc/pic18f4620.h: 1216: extern volatile unsigned char LATD __attribute__((address(0xF8C)));
+[v _LATD `Vuc ~T0 @X0 0 e@3980 ]
+"189
+[; ;/opt/microchip/mplabx/v5.45/packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8/pic/include/proc/pic18f4620.h: 189: extern volatile unsigned char PORTB __attribute__((address(0xF81)));
+[v _PORTB `Vuc ~T0 @X0 0 e@3969 ]
+"1602
+[; ;/opt/microchip/mplabx/v5.45/packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8/pic/include/proc/pic18f4620.h: 1602: extern volatile unsigned char TRISB __attribute__((address(0xF93)));
+[v _TRISB `Vuc ~T0 @X0 0 e@3987 ]
+"1613
+[; ;/opt/microchip/mplabx/v5.45/packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8/pic/include/proc/pic18f4620.h: 1613:     struct {
+[s S64 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S64 . TRISB0 TRISB1 TRISB2 TRISB3 TRISB4 TRISB5 TRISB6 TRISB7 ]
+"1623
+[; ;/opt/microchip/mplabx/v5.45/packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8/pic/include/proc/pic18f4620.h: 1623:     struct {
+[s S65 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S65 . RB0 RB1 RB2 RB3 RB4 RB5 RB6 RB7 ]
+"1612
+[; ;/opt/microchip/mplabx/v5.45/packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8/pic/include/proc/pic18f4620.h: 1612: typedef union {
+[u S63 `S64 1 `S65 1 ]
+[n S63 . . . ]
+"1634
+[; ;/opt/microchip/mplabx/v5.45/packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8/pic/include/proc/pic18f4620.h: 1634: extern volatile TRISBbits_t TRISBbits __attribute__((address(0xF93)));
+[v _TRISBbits `VS63 ~T0 @X0 0 e@3987 ]
+"992
+[; ;/opt/microchip/mplabx/v5.45/packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8/pic/include/proc/pic18f4620.h: 992: extern volatile unsigned char LATB __attribute__((address(0xF8A)));
+[v _LATB `Vuc ~T0 @X0 0 e@3978 ]
 "6380
 [; ;/opt/microchip/mplabx/v5.45/packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8/pic/include/proc/pic18f4620.h: 6380:     struct {
 [s S263 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -229,51 +246,59 @@ Version 4.0 HI-TECH Software Intermediate Code
 "6406
 [; ;/opt/microchip/mplabx/v5.45/packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8/pic/include/proc/pic18f4620.h: 6406: extern volatile INTCONbits_t INTCONbits __attribute__((address(0xFF2)));
 [v _INTCONbits `VS262 ~T0 @X0 0 e@4082 ]
-"195
-[; ;/opt/microchip/mplabx/v5.45/packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8/pic/include/proc/pic18f4620.h: 195:     struct {
-[s S16 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S16 . RB0 RB1 RB2 RB3 RB4 RB5 RB6 RB7 ]
-"205
-[; ;/opt/microchip/mplabx/v5.45/packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8/pic/include/proc/pic18f4620.h: 205:     struct {
-[s S17 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S17 . INT0 INT1 INT2 CCP2 KBI0 KBI1 KBI2 KBI3 ]
-"215
-[; ;/opt/microchip/mplabx/v5.45/packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8/pic/include/proc/pic18f4620.h: 215:     struct {
-[s S18 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S18 . AN12 AN10 AN8 AN9 AN11 PGM PGC PGD ]
-"225
-[; ;/opt/microchip/mplabx/v5.45/packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8/pic/include/proc/pic18f4620.h: 225:     struct {
-[s S19 :3 `uc 1 :1 `uc 1 ]
-[n S19 . . CCP2_PA2 ]
-"194
-[; ;/opt/microchip/mplabx/v5.45/packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8/pic/include/proc/pic18f4620.h: 194: typedef union {
-[u S15 `S16 1 `S17 1 `S18 1 `S19 1 ]
-[n S15 . . . . . ]
-"230
-[; ;/opt/microchip/mplabx/v5.45/packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8/pic/include/proc/pic18f4620.h: 230: extern volatile PORTBbits_t PORTBbits __attribute__((address(0xF81)));
-[v _PORTBbits `VS15 ~T0 @X0 0 e@3969 ]
-[p mainexit ]
-"992
-[; ;/opt/microchip/mplabx/v5.45/packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8/pic/include/proc/pic18f4620.h: 992: extern volatile unsigned char LATB __attribute__((address(0xF8A)));
-[v _LATB `Vuc ~T0 @X0 0 e@3978 ]
-"1613
-[; ;/opt/microchip/mplabx/v5.45/packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8/pic/include/proc/pic18f4620.h: 1613:     struct {
-[s S64 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S64 . TRISB0 TRISB1 TRISB2 TRISB3 TRISB4 TRISB5 TRISB6 TRISB7 ]
-"1623
-[; ;/opt/microchip/mplabx/v5.45/packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8/pic/include/proc/pic18f4620.h: 1623:     struct {
-[s S65 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S65 . RB0 RB1 RB2 RB3 RB4 RB5 RB6 RB7 ]
-"1612
-[; ;/opt/microchip/mplabx/v5.45/packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8/pic/include/proc/pic18f4620.h: 1612: typedef union {
-[u S63 `S64 1 `S65 1 ]
-[n S63 . . . ]
-"1634
-[; ;/opt/microchip/mplabx/v5.45/packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8/pic/include/proc/pic18f4620.h: 1634: extern volatile TRISBbits_t TRISBbits __attribute__((address(0xF93)));
-[v _TRISBbits `VS63 ~T0 @X0 0 e@3987 ]
+"6218
+[; ;/opt/microchip/mplabx/v5.45/packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8/pic/include/proc/pic18f4620.h: 6218:     struct {
+[s S256 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S256 . INT1IF INT2IF . INT1IE INT2IE . INT1IP INT2IP ]
+"6228
+[; ;/opt/microchip/mplabx/v5.45/packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8/pic/include/proc/pic18f4620.h: 6228:     struct {
+[s S257 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S257 . INT1F INT2F . INT1E INT2E . INT1P INT2P ]
+"6217
+[; ;/opt/microchip/mplabx/v5.45/packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8/pic/include/proc/pic18f4620.h: 6217: typedef union {
+[u S255 `S256 1 `S257 1 ]
+[n S255 . . . ]
+"6239
+[; ;/opt/microchip/mplabx/v5.45/packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8/pic/include/proc/pic18f4620.h: 6239: extern volatile INTCON3bits_t INTCON3bits __attribute__((address(0xFF0)));
+[v _INTCON3bits `VS255 ~T0 @X0 0 e@4080 ]
 "5856
 [; ;/opt/microchip/mplabx/v5.45/packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8/pic/include/proc/pic18f4620.h: 5856: extern volatile unsigned char T0CON __attribute__((address(0xFD5)));
 [v _T0CON `Vuc ~T0 @X0 0 e@4053 ]
+"5933
+[; ;/opt/microchip/mplabx/v5.45/packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8/pic/include/proc/pic18f4620.h: 5933: extern volatile unsigned short TMR0 __attribute__((address(0xFD6)));
+[v _TMR0 `Vus ~T0 @X0 0 e@4054 ]
+"5224
+[; ;/opt/microchip/mplabx/v5.45/packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8/pic/include/proc/pic18f4620.h: 5224: extern volatile unsigned char T1CON __attribute__((address(0xFCD)));
+[v _T1CON `Vuc ~T0 @X0 0 e@4045 ]
+"5230
+[; ;/opt/microchip/mplabx/v5.45/packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8/pic/include/proc/pic18f4620.h: 5230:     struct {
+[s S221 :2 `uc 1 :1 `uc 1 ]
+[n S221 . . NOT_T1SYNC ]
+"5234
+[; ;/opt/microchip/mplabx/v5.45/packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8/pic/include/proc/pic18f4620.h: 5234:     struct {
+[s S222 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S222 . TMR1ON TMR1CS nT1SYNC T1OSCEN T1CKPS T1RUN RD16 ]
+"5243
+[; ;/opt/microchip/mplabx/v5.45/packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8/pic/include/proc/pic18f4620.h: 5243:     struct {
+[s S223 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S223 . . T1SYNC . T1CKPS0 T1CKPS1 ]
+"5250
+[; ;/opt/microchip/mplabx/v5.45/packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8/pic/include/proc/pic18f4620.h: 5250:     struct {
+[s S224 :3 `uc 1 :1 `uc 1 :3 `uc 1 :1 `uc 1 ]
+[n S224 . . SOSCEN . T1RD16 ]
+"5229
+[; ;/opt/microchip/mplabx/v5.45/packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8/pic/include/proc/pic18f4620.h: 5229: typedef union {
+[u S220 `S221 1 `S222 1 `S223 1 `S224 1 ]
+[n S220 . . . . . ]
+"5257
+[; ;/opt/microchip/mplabx/v5.45/packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8/pic/include/proc/pic18f4620.h: 5257: extern volatile T1CONbits_t T1CONbits __attribute__((address(0xFCD)));
+[v _T1CONbits `VS220 ~T0 @X0 0 e@4045 ]
+[t ~ __interrupt . k ]
+[t T39 __interrupt high_priority ]
+"8172
+[; ;/opt/microchip/mplabx/v5.45/packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8/pic/include/proc/pic18f4620.h: 8172: extern volatile __bit TMR0IF __attribute__((address(0x7F92)));
+[v _TMR0IF `Vb ~T0 @X0 0 e@32658 ]
+[p mainexit ]
 "16 ./Pragmas.h
 [p x OSC  =  INTIO67     ]
 "17
@@ -293,7 +318,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "30
 [p x CCP2MX  =  PORTC    ]
 "31
-[p x PBADEN  =  ON       ]
+[p x PBADEN  =  OFF       ]
 "32
 [p x LPT1OSC  =  OFF     ]
 "33
@@ -1522,18 +1547,65 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U _random_generator ]
 [v _modulo `us ~T0 @X0 1 r1 ]
 [f ]
+"206
+[; ;./the3.h: 206:     unsigned short rotation = 2;
+[v _rotation `us ~T0 @X0 1 a ]
+[e = _rotation -> -> 2 `i `us ]
 "209
-[; ;./the3.h: 209: }
+[; ;./the3.h: 209:     int timer_value = TMR1;
+[v _timer_value `i ~T0 @X0 1 a ]
+[e = _timer_value -> _TMR1 `i ]
+"212
+[; ;./the3.h: 212:     int pseudo_random = (timer_value % modulo) + 1;
+[v _pseudo_random `i ~T0 @X0 1 a ]
+[e = _pseudo_random -> + % -> _timer_value `ui -> _modulo `ui -> -> 1 `i `ui `i ]
+"215
+[; ;./the3.h: 215:     int rotated_value = timer_value >> rotation;
+[v _rotated_value `i ~T0 @X0 1 a ]
+[e = _rotated_value >> _timer_value -> _rotation `ui ]
+"218
+[; ;./the3.h: 218:     TMR1 = rotated_value;
+[e = _TMR1 -> _rotated_value `us ]
+"221
+[; ;./the3.h: 221:     return pseudo_random;
+[e ) -> _pseudo_random `us ]
+[e $UE 335  ]
+"222
+[; ;./the3.h: 222: }
 [e :UE 335 ]
 }
-"13 newmain.c
-[; ;newmain.c: 13: volatile char CONVERT=0;
+"17 newmain.c
+[; ;newmain.c: 17: volatile char CONVERT=0;
 [v _CONVERT `Vuc ~T0 @X0 1 e ]
 [i _CONVERT
 -> -> 0 `i `uc
 ]
-"15
-[; ;newmain.c: 15: unsigned char empty[8] = {
+"18
+[; ;newmain.c: 18: volatile char gamepad_button_pressed=0;
+[v _gamepad_button_pressed `Vuc ~T0 @X0 1 e ]
+[i _gamepad_button_pressed
+-> -> 0 `i `uc
+]
+"19
+[; ;newmain.c: 19: byte previous_portb = 0;
+[v _previous_portb `uc ~T0 @X0 1 e ]
+[i _previous_portb
+-> -> 0 `i `uc
+]
+"20
+[; ;newmain.c: 20: byte debounce_flag = 0;
+[v _debounce_flag `uc ~T0 @X0 1 e ]
+[i _debounce_flag
+-> -> 0 `i `uc
+]
+"21
+[; ;newmain.c: 21: int frisbee_held = 0;
+[v _frisbee_held `i ~T0 @X0 1 e ]
+[i _frisbee_held
+-> 0 `i
+]
+"23
+[; ;newmain.c: 23: unsigned char empty[8] = {
 [v _empty `uc ~T0 @X0 -> 8 `i e ]
 [i _empty
 :U ..
@@ -1547,8 +1619,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 0 `i `uc
 ..
 ]
-"25
-[; ;newmain.c: 25: unsigned char digits[10] = {
+"33
+[; ;newmain.c: 33: unsigned char digits[10] = {
 [v _digits `uc ~T0 @X0 -> 10 `i e ]
 [i _digits
 :U ..
@@ -1564,21 +1636,21 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 111 `i `uc
 ..
 ]
-"39
-[; ;newmain.c: 39: unsigned char dash = 0b01000000;
+"47
+[; ;newmain.c: 47: unsigned char dash = 0b01000000;
 [v _dash `uc ~T0 @X0 1 e ]
 [i _dash
 -> -> 64 `i `uc
 ]
-"55
-[; ;newmain.c: 55: GameState gameState = {
+"63
+[; ;newmain.c: 63: GameState gameState = {
 [v _gameState `S340 ~T0 @X0 1 e ]
 [i _gameState
 :U ..
 :U ..
 :U ..
 :U ..
--> 4 `i
+-> 3 `i
 -> 2 `i
 ..
 :U ..
@@ -1607,393 +1679,883 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ..
 ]
-"70
-[; ;newmain.c: 70: volatile int display_state = 0;
+"78
+[; ;newmain.c: 78: volatile int display_state = 0;
 [v _display_state `Vi ~T0 @X0 1 e ]
 [i _display_state
 -> 0 `i
 ]
-"72
-[; ;newmain.c: 72: void updatePlayerPositionOnLCD(int oldX, int oldY, int newX, int newY, int selectedPlayer)
-[v _updatePlayerPositionOnLCD `(v ~T0 @X0 1 ef5`i`i`i`i`i ]
-"73
-[; ;newmain.c: 73: {
+"80
+[; ;newmain.c: 80: void moveSelectedPlayerPositionOnLCD(int oldX, int oldY, int newX, int newY, int selectedPlayer)
+[v _moveSelectedPlayerPositionOnLCD `(v ~T0 @X0 1 ef5`i`i`i`i`i ]
+"81
+[; ;newmain.c: 81: {
 {
-[e :U _updatePlayerPositionOnLCD ]
-"72
-[; ;newmain.c: 72: void updatePlayerPositionOnLCD(int oldX, int oldY, int newX, int newY, int selectedPlayer)
+[e :U _moveSelectedPlayerPositionOnLCD ]
+"80
+[; ;newmain.c: 80: void moveSelectedPlayerPositionOnLCD(int oldX, int oldY, int newX, int newY, int selectedPlayer)
 [v _oldX `i ~T0 @X0 1 r1 ]
 [v _oldY `i ~T0 @X0 1 r2 ]
 [v _newX `i ~T0 @X0 1 r3 ]
 [v _newY `i ~T0 @X0 1 r4 ]
 [v _selectedPlayer `i ~T0 @X0 1 r5 ]
-"73
-[; ;newmain.c: 73: {
-[f ]
-"74
-[; ;newmain.c: 74:     printf("Updating player position from (%d, %d) to (%d, %d)\n", oldX, oldY, newX, newY);
-[e ( _printf , , , , (. :s 1C _oldX _oldY _newX _newY ]
-"76
-[; ;newmain.c: 76:     LCDAddSpecialCharacter(selectedPlayer, empty);
-[e ( _LCDAddSpecialCharacter (2 , -> _selectedPlayer `uc &U _empty ]
-"77
-[; ;newmain.c: 77:     LCDGoto(oldX, oldY);
-[e ( _LCDGoto (2 , -> _oldX `uc -> _oldY `uc ]
-"78
-[; ;newmain.c: 78:     LCDDat(selectedPlayer);
-[e ( _LCDDat (1 -> _selectedPlayer `uc ]
 "81
-[; ;newmain.c: 81:     LCDAddSpecialCharacter(selectedPlayer, selectedPlayer < 2 ? selected_teamA_player : selected_teamB_player);
-[e ( _LCDAddSpecialCharacter (2 , -> _selectedPlayer `uc ? < _selectedPlayer -> 2 `i : &U _selected_teamA_player &U _selected_teamB_player ]
+[; ;newmain.c: 81: {
+[f ]
 "82
-[; ;newmain.c: 82:     LCDGoto(newX, newY);
-[e ( _LCDGoto (2 , -> _newX `uc -> _newY `uc ]
-"83
-[; ;newmain.c: 83:     LCDDat(selectedPlayer);
-[e ( _LCDDat (1 -> _selectedPlayer `uc ]
+[; ;newmain.c: 82:     LATA = 0;
+[e = _LATA -> -> 0 `i `uc ]
 "84
-[; ;newmain.c: 84: }
+[; ;newmain.c: 84:     LCDGoto(oldX, oldY);
+[e ( _LCDGoto (2 , -> _oldX `uc -> _oldY `uc ]
+"85
+[; ;newmain.c: 85:     LCDStr(" ");
+[e ( _LCDStr (1 :s 1C ]
+"88
+[; ;newmain.c: 88:     LCDGoto(newX, newY);
+[e ( _LCDGoto (2 , -> _newX `uc -> _newY `uc ]
+"89
+[; ;newmain.c: 89:     LCDDat(selectedPlayer < 2 ? 0:2);
+[e ( _LCDDat (1 -> ? < _selectedPlayer -> 2 `i : -> 0 `i -> 2 `i `uc ]
+"90
+[; ;newmain.c: 90: }
 [e :UE 341 ]
 }
+"92
+[; ;newmain.c: 92: void setInitialState(){
+[v _setInitialState `(v ~T0 @X0 1 ef ]
+{
+[e :U _setInitialState ]
+[f ]
+"94
+[; ;newmain.c: 94:     LCDAddSpecialCharacter(0, selected_teamA_player);
+[e ( _LCDAddSpecialCharacter (2 , -> -> 0 `i `uc &U _selected_teamA_player ]
+"95
+[; ;newmain.c: 95:     LCDAddSpecialCharacter(1, teamA_player);
+[e ( _LCDAddSpecialCharacter (2 , -> -> 1 `i `uc &U _teamA_player ]
+"96
+[; ;newmain.c: 96:     LCDAddSpecialCharacter(2, selected_teamB_player);
+[e ( _LCDAddSpecialCharacter (2 , -> -> 2 `i `uc &U _selected_teamB_player ]
+"97
+[; ;newmain.c: 97:     LCDAddSpecialCharacter(3, teamB_player);
+[e ( _LCDAddSpecialCharacter (2 , -> -> 3 `i `uc &U _teamB_player ]
+"98
+[; ;newmain.c: 98:     LCDAddSpecialCharacter(4, frisbee);
+[e ( _LCDAddSpecialCharacter (2 , -> -> 4 `i `uc &U _frisbee ]
+"99
+[; ;newmain.c: 99:     LCDAddSpecialCharacter(5, selected_teamA_player_with_frisbee);
+[e ( _LCDAddSpecialCharacter (2 , -> -> 5 `i `uc &U _selected_teamA_player_with_frisbee ]
+"100
+[; ;newmain.c: 100:     LCDAddSpecialCharacter(6, selected_teamB_player_with_frisbee);
+[e ( _LCDAddSpecialCharacter (2 , -> -> 6 `i `uc &U _selected_teamB_player_with_frisbee ]
+"102
+[; ;newmain.c: 102:     LCDGoto(3, 2);
+[e ( _LCDGoto (2 , -> -> 3 `i `uc -> -> 2 `i `uc ]
+"103
+[; ;newmain.c: 103:     LCDDat(0);
+[e ( _LCDDat (1 -> -> 0 `i `uc ]
+"105
+[; ;newmain.c: 105:     LCDGoto(3, 3);
+[e ( _LCDGoto (2 , -> -> 3 `i `uc -> -> 3 `i `uc ]
+"106
+[; ;newmain.c: 106:     LCDDat(1);
+[e ( _LCDDat (1 -> -> 1 `i `uc ]
+"108
+[; ;newmain.c: 108:     LCDGoto(14, 2);
+[e ( _LCDGoto (2 , -> -> 14 `i `uc -> -> 2 `i `uc ]
+"109
+[; ;newmain.c: 109:     LCDDat(3);
+[e ( _LCDDat (1 -> -> 3 `i `uc ]
+"111
+[; ;newmain.c: 111:     LCDGoto(14, 3);
+[e ( _LCDGoto (2 , -> -> 14 `i `uc -> -> 3 `i `uc ]
+"112
+[; ;newmain.c: 112:     LCDDat(3);
+[e ( _LCDDat (1 -> -> 3 `i `uc ]
+"114
+[; ;newmain.c: 114:     LCDGoto(9, 2);
+[e ( _LCDGoto (2 , -> -> 9 `i `uc -> -> 2 `i `uc ]
+"115
+[; ;newmain.c: 115:     LCDDat(4);
+[e ( _LCDDat (1 -> -> 4 `i `uc ]
+"116
+[; ;newmain.c: 116: }
+[e :UE 342 ]
+}
+"121
+[; ;newmain.c: 121: void display_7seg() {
+[v _display_7seg `(v ~T0 @X0 1 ef ]
+{
+[e :U _display_7seg ]
+[f ]
+"122
+[; ;newmain.c: 122:     TRISA = 0;
+[e = _TRISA -> -> 0 `i `uc ]
+"123
+[; ;newmain.c: 123:     LATA = 0b00001000;
+[e = _LATA -> -> 8 `i `uc ]
+"124
+[; ;newmain.c: 124:     LATD = digits[gameState.teamA_score];
+[e = _LATD *U + &U _digits * -> -> . _gameState 3 `ui `ux -> -> # *U &U _digits `ui `ux ]
+"125
+[; ;newmain.c: 125:     _delay((unsigned long)((1)*(40000000L/4000.0)));
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 40000000 `l `d .4000.0 `ul ]
+"126
+[; ;newmain.c: 126:     LATA = 0b00010000;
+[e = _LATA -> -> 16 `i `uc ]
+"127
+[; ;newmain.c: 127:     LATD = dash;
+[e = _LATD _dash ]
+"128
+[; ;newmain.c: 128:     _delay((unsigned long)((1)*(40000000L/4000.0)));
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 40000000 `l `d .4000.0 `ul ]
+"129
+[; ;newmain.c: 129:     LATA = 0b00100000;
+[e = _LATA -> -> 32 `i `uc ]
+"130
+[; ;newmain.c: 130:     LATD = digits[gameState.teamB_score];
+[e = _LATD *U + &U _digits * -> -> . _gameState 4 `ui `ux -> -> # *U &U _digits `ui `ux ]
+"131
+[; ;newmain.c: 131:     _delay((unsigned long)((1)*(40000000L/4000.0)));
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 40000000 `l `d .4000.0 `ul ]
+"132
+[; ;newmain.c: 132: }
+[e :UE 343 ]
+}
+"135
+[; ;newmain.c: 135: int isThereOtherPlayer(int oldX, int oldY){
+[v _isThereOtherPlayer `(i ~T0 @X0 1 ef2`i`i ]
+{
+[e :U _isThereOtherPlayer ]
+[v _oldX `i ~T0 @X0 1 r1 ]
+[v _oldY `i ~T0 @X0 1 r2 ]
+[f ]
+"136
+[; ;newmain.c: 136:     for (int i = 0; i < 4; i++) {
+{
+[v _i `i ~T0 @X0 1 a ]
+[e = _i -> 0 `i ]
+[e $ < _i -> 4 `i 345  ]
+[e $U 346  ]
+[e :U 345 ]
+{
+"137
+[; ;newmain.c: 137:         if (gameState.player_positions[i].x == oldX && gameState.player_positions[i].y == oldY) {
+[e $ ! && == . *U + &U . _gameState 0 * -> -> _i `ui `ux -> -> # *U &U . _gameState 0 `ui `ux 0 _oldX == . *U + &U . _gameState 0 * -> -> _i `ui `ux -> -> # *U &U . _gameState 0 `ui `ux 1 _oldY 348  ]
+{
+"138
+[; ;newmain.c: 138:             return 1;
+[e ) -> 1 `i ]
+[e $UE 344  ]
+"139
+[; ;newmain.c: 139:         }
+}
+[e :U 348 ]
+"140
+[; ;newmain.c: 140:     }
+}
+[e ++ _i -> 1 `i ]
+[e $ < _i -> 4 `i 345  ]
+[e :U 346 ]
+}
+"141
+[; ;newmain.c: 141:     return 0;
+[e ) -> 0 `i ]
+[e $UE 344  ]
+"142
+[; ;newmain.c: 142: }
+[e :UE 344 ]
+}
+"145
+[; ;newmain.c: 145: int frisbeeHeld(){
+[v _frisbeeHeld `(i ~T0 @X0 1 ef ]
+{
+[e :U _frisbeeHeld ]
+[f ]
+"146
+[; ;newmain.c: 146:     int selected_player = gameState.selected_player;
+[v _selected_player `i ~T0 @X0 1 a ]
+[e = _selected_player . _gameState 2 ]
+"147
+[; ;newmain.c: 147:     if (gameState.frisbee_position.x == gameState.player_positions[selected_player].x
+[e $ ! && == . . _gameState 1 0 . *U + &U . _gameState 0 * -> -> _selected_player `ui `ux -> -> # *U &U . _gameState 0 `ui `ux 0 == . . _gameState 1 1 . *U + &U . _gameState 0 * -> -> _selected_player `ui `ux -> -> # *U &U . _gameState 0 `ui `ux 1 350  ]
+"148
+[; ;newmain.c: 148:             && gameState.frisbee_position.y == gameState.player_positions[selected_player].y) {
+{
+"149
+[; ;newmain.c: 149:         gameState.game_mode = 0;
+[e = . _gameState 5 -> 0 `i ]
+"150
+[; ;newmain.c: 150:         frisbee_held = 1;
+[e = _frisbee_held -> 1 `i ]
+"151
+[; ;newmain.c: 151:         return 1;
+[e ) -> 1 `i ]
+[e $UE 349  ]
+"152
+[; ;newmain.c: 152:     }
+}
+[e :U 350 ]
+"154
+[; ;newmain.c: 154:     return 0;
+[e ) -> 0 `i ]
+[e $UE 349  ]
+"155
+[; ;newmain.c: 155: }
+[e :UE 349 ]
+}
+"158
+[; ;newmain.c: 158: int hasPlayerLeftFrisbeeLocation() {
+[v _hasPlayerLeftFrisbeeLocation `(i ~T0 @X0 1 ef ]
+{
+[e :U _hasPlayerLeftFrisbeeLocation ]
+[f ]
+"159
+[; ;newmain.c: 159:     if (!frisbee_held){
+[e $ ! ! != _frisbee_held -> 0 `i 352  ]
+{
+"160
+[; ;newmain.c: 160:         return 0;
+[e ) -> 0 `i ]
+[e $UE 351  ]
+"161
+[; ;newmain.c: 161:     }
+}
+[e :U 352 ]
+"163
+[; ;newmain.c: 163:     int selected_player = gameState.selected_player;
+[v _selected_player `i ~T0 @X0 1 a ]
+[e = _selected_player . _gameState 2 ]
+"165
+[; ;newmain.c: 165:     if (gameState.player_positions[selected_player].x != gameState.frisbee_position.x ||
+[e $ ! || != . *U + &U . _gameState 0 * -> -> _selected_player `ui `ux -> -> # *U &U . _gameState 0 `ui `ux 0 . . _gameState 1 0 != . *U + &U . _gameState 0 * -> -> _selected_player `ui `ux -> -> # *U &U . _gameState 0 `ui `ux 1 . . _gameState 1 1 353  ]
+"166
+[; ;newmain.c: 166:         gameState.player_positions[selected_player].y != gameState.frisbee_position.y){
+{
+"167
+[; ;newmain.c: 167:         gameState.game_mode = 1;
+[e = . _gameState 5 -> 1 `i ]
+"168
+[; ;newmain.c: 168:         frisbee_held = 0;
+[e = _frisbee_held -> 0 `i ]
+"169
+[; ;newmain.c: 169:         return 1;
+[e ) -> 1 `i ]
+[e $UE 351  ]
+"170
+[; ;newmain.c: 170:     }
+}
+[e :U 353 ]
+"171
+[; ;newmain.c: 171:     return 0;
+[e ) -> 0 `i ]
+[e $UE 351  ]
+"172
+[; ;newmain.c: 172: }
+[e :UE 351 ]
+}
+"175
+[; ;newmain.c: 175: void frisbeeHeldOnLCD(){
+[v _frisbeeHeldOnLCD `(v ~T0 @X0 1 ef ]
+{
+[e :U _frisbeeHeldOnLCD ]
+[f ]
+"176
+[; ;newmain.c: 176:     int frisbeeX, frisbeeY, selected_player;
+[v _frisbeeX `i ~T0 @X0 1 a ]
+[v _frisbeeY `i ~T0 @X0 1 a ]
+[v _selected_player `i ~T0 @X0 1 a ]
+"177
+[; ;newmain.c: 177:     frisbeeX = gameState.frisbee_position.x;
+[e = _frisbeeX . . _gameState 1 0 ]
+"178
+[; ;newmain.c: 178:     frisbeeY = gameState.frisbee_position.y;
+[e = _frisbeeY . . _gameState 1 1 ]
+"179
+[; ;newmain.c: 179:     selected_player = gameState.selected_player;
+[e = _selected_player . _gameState 2 ]
+"180
+[; ;newmain.c: 180:     LCDGoto(frisbeeX,frisbeeY);
+[e ( _LCDGoto (2 , -> _frisbeeX `uc -> _frisbeeY `uc ]
+"181
+[; ;newmain.c: 181:     LCDStr(" ");
+[e ( _LCDStr (1 :s 2C ]
+"183
+[; ;newmain.c: 183:     LCDGoto(frisbeeX,frisbeeY);
+[e ( _LCDGoto (2 , -> _frisbeeX `uc -> _frisbeeY `uc ]
+"184
+[; ;newmain.c: 184:     LCDDat(selected_player < 2 ? 5:6);
+[e ( _LCDDat (1 -> ? < _selected_player -> 2 `i : -> 5 `i -> 6 `i `uc ]
+"186
+[; ;newmain.c: 186: }
+[e :UE 354 ]
+}
+"189
+[; ;newmain.c: 189: void frisbeeReleasedOnLCD(){
+[v _frisbeeReleasedOnLCD `(v ~T0 @X0 1 ef ]
+{
+[e :U _frisbeeReleasedOnLCD ]
+[f ]
+"190
+[; ;newmain.c: 190:     int frisbeeX, frisbeeY, selected_player;
+[v _frisbeeX `i ~T0 @X0 1 a ]
+[v _frisbeeY `i ~T0 @X0 1 a ]
+[v _selected_player `i ~T0 @X0 1 a ]
+"191
+[; ;newmain.c: 191:     frisbeeX = gameState.frisbee_position.x;
+[e = _frisbeeX . . _gameState 1 0 ]
+"192
+[; ;newmain.c: 192:     frisbeeY = gameState.frisbee_position.y;
+[e = _frisbeeY . . _gameState 1 1 ]
+"193
+[; ;newmain.c: 193:     selected_player = gameState.selected_player;
+[e = _selected_player . _gameState 2 ]
+"194
+[; ;newmain.c: 194:     LCDGoto(frisbeeX,frisbeeY);
+[e ( _LCDGoto (2 , -> _frisbeeX `uc -> _frisbeeY `uc ]
+"195
+[; ;newmain.c: 195:     LCDStr(" ");
+[e ( _LCDStr (1 :s 3C ]
+"197
+[; ;newmain.c: 197:     LCDGoto(frisbeeX,frisbeeY);
+[e ( _LCDGoto (2 , -> _frisbeeX `uc -> _frisbeeY `uc ]
+"198
+[; ;newmain.c: 198:     LCDDat(4);
+[e ( _LCDDat (1 -> -> 4 `i `uc ]
+"199
+[; ;newmain.c: 199: }
+[e :UE 355 ]
+}
+"201
+[; ;newmain.c: 201: void gamepadPressed() {
+[v _gamepadPressed `(v ~T0 @X0 1 ef ]
+{
+[e :U _gamepadPressed ]
+[f ]
+"202
+[; ;newmain.c: 202:     byte current_portb = PORTB;;
+[v _current_portb `uc ~T0 @X0 1 a ]
+[e = _current_portb _PORTB ]
+"203
+[; ;newmain.c: 203:     _delay((unsigned long)((1)*(40000000L/4000.0)));
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 40000000 `l `d .4000.0 `ul ]
+"204
+[; ;newmain.c: 204:     int oldX = gameState.player_positions[gameState.selected_player].x;
+[v _oldX `i ~T0 @X0 1 a ]
+[e = _oldX . *U + &U . _gameState 0 * -> -> . _gameState 2 `ui `ux -> -> # *U &U . _gameState 0 `ui `ux 0 ]
+"205
+[; ;newmain.c: 205:     int oldY = gameState.player_positions[gameState.selected_player].y;
+[v _oldY `i ~T0 @X0 1 a ]
+[e = _oldY . *U + &U . _gameState 0 * -> -> . _gameState 2 `ui `ux -> -> # *U &U . _gameState 0 `ui `ux 1 ]
+"210
+[; ;newmain.c: 210:     if (((previous_portb & 0b00010000) == 0b00010000) && ((current_portb & 0b00010000) == 0))
+[e $ ! && == & -> _previous_portb `i -> 16 `i -> 16 `i == & -> _current_portb `i -> 16 `i -> 0 `i 357  ]
+"211
+[; ;newmain.c: 211:     {
+{
+"212
+[; ;newmain.c: 212:         if (gameState.player_positions[gameState.selected_player].y == 1){
+[e $ ! == . *U + &U . _gameState 0 * -> -> . _gameState 2 `ui `ux -> -> # *U &U . _gameState 0 `ui `ux 1 -> 1 `i 358  ]
+{
+"213
+[; ;newmain.c: 213:             return;
+[e $UE 356  ]
+"214
+[; ;newmain.c: 214:         }
+}
+[e :U 358 ]
+"215
+[; ;newmain.c: 215:         if (isThereOtherPlayer(oldX,oldY-1)){
+[e $ ! != ( _isThereOtherPlayer (2 , _oldX - _oldY -> 1 `i -> 0 `i 359  ]
+{
+"216
+[; ;newmain.c: 216:             return;
+[e $UE 356  ]
+"217
+[; ;newmain.c: 217:         }
+}
+[e :U 359 ]
+"219
+[; ;newmain.c: 219:         gameState.player_positions[gameState.selected_player].y--;
+[e -- . *U + &U . _gameState 0 * -> -> . _gameState 2 `ui `ux -> -> # *U &U . _gameState 0 `ui `ux 1 -> 1 `i ]
+"220
+[; ;newmain.c: 220:     } else if (((previous_portb & 0b01000000) == 0b01000000) && ((current_portb & 0b01000000) == 0))
+}
+[e $U 360  ]
+[e :U 357 ]
+[e $ ! && == & -> _previous_portb `i -> 64 `i -> 64 `i == & -> _current_portb `i -> 64 `i -> 0 `i 361  ]
+"221
+[; ;newmain.c: 221:     {
+{
+"222
+[; ;newmain.c: 222:         if (gameState.player_positions[gameState.selected_player].y == 4){
+[e $ ! == . *U + &U . _gameState 0 * -> -> . _gameState 2 `ui `ux -> -> # *U &U . _gameState 0 `ui `ux 1 -> 4 `i 362  ]
+{
+"223
+[; ;newmain.c: 223:             return;
+[e $UE 356  ]
+"224
+[; ;newmain.c: 224:         }
+}
+[e :U 362 ]
+"225
+[; ;newmain.c: 225:         if (isThereOtherPlayer(oldX,oldY+1)){
+[e $ ! != ( _isThereOtherPlayer (2 , _oldX + _oldY -> 1 `i -> 0 `i 363  ]
+{
+"226
+[; ;newmain.c: 226:             return;
+[e $UE 356  ]
+"227
+[; ;newmain.c: 227:         }
+}
+[e :U 363 ]
+"228
+[; ;newmain.c: 228:         gameState.player_positions[gameState.selected_player].y++;
+[e ++ . *U + &U . _gameState 0 * -> -> . _gameState 2 `ui `ux -> -> # *U &U . _gameState 0 `ui `ux 1 -> 1 `i ]
+"229
+[; ;newmain.c: 229:     } else if (((previous_portb & 0b10000000) == 0b10000000) && ((current_portb & 0b10000000) == 0))
+}
+[e $U 364  ]
+[e :U 361 ]
+[e $ ! && == & -> _previous_portb `i -> 128 `i -> 128 `i == & -> _current_portb `i -> 128 `i -> 0 `i 365  ]
+"230
+[; ;newmain.c: 230:     {
+{
+"231
+[; ;newmain.c: 231:         if (gameState.player_positions[gameState.selected_player].x == 1) {
+[e $ ! == . *U + &U . _gameState 0 * -> -> . _gameState 2 `ui `ux -> -> # *U &U . _gameState 0 `ui `ux 0 -> 1 `i 366  ]
+{
+"232
+[; ;newmain.c: 232:             return;
+[e $UE 356  ]
+"233
+[; ;newmain.c: 233:         }
+}
+[e :U 366 ]
+"234
+[; ;newmain.c: 234:         if (isThereOtherPlayer(oldX-1,oldY)){
+[e $ ! != ( _isThereOtherPlayer (2 , - _oldX -> 1 `i _oldY -> 0 `i 367  ]
+{
+"235
+[; ;newmain.c: 235:             return;
+[e $UE 356  ]
+"236
+[; ;newmain.c: 236:         }
+}
+[e :U 367 ]
+"237
+[; ;newmain.c: 237:         gameState.player_positions[gameState.selected_player].x--;
+[e -- . *U + &U . _gameState 0 * -> -> . _gameState 2 `ui `ux -> -> # *U &U . _gameState 0 `ui `ux 0 -> 1 `i ]
+"238
+[; ;newmain.c: 238:     } else if (((previous_portb & 0b00100000) == 0b00100000) && ((current_portb & 0b00100000) == 0))
+}
+[e $U 368  ]
+[e :U 365 ]
+[e $ ! && == & -> _previous_portb `i -> 32 `i -> 32 `i == & -> _current_portb `i -> 32 `i -> 0 `i 369  ]
+"239
+[; ;newmain.c: 239:     {
+{
+"240
+[; ;newmain.c: 240:         if (gameState.player_positions[gameState.selected_player].x == 16) {
+[e $ ! == . *U + &U . _gameState 0 * -> -> . _gameState 2 `ui `ux -> -> # *U &U . _gameState 0 `ui `ux 0 -> 16 `i 370  ]
+{
+"241
+[; ;newmain.c: 241:             return;
+[e $UE 356  ]
+"242
+[; ;newmain.c: 242:         }
+}
+[e :U 370 ]
+"243
+[; ;newmain.c: 243:         if (isThereOtherPlayer(oldX+1,oldY)){
+[e $ ! != ( _isThereOtherPlayer (2 , + _oldX -> 1 `i _oldY -> 0 `i 371  ]
+{
+"244
+[; ;newmain.c: 244:             return;
+[e $UE 356  ]
+"245
+[; ;newmain.c: 245:         }
+}
+[e :U 371 ]
+"246
+[; ;newmain.c: 246:         gameState.player_positions[gameState.selected_player].x++;
+[e ++ . *U + &U . _gameState 0 * -> -> . _gameState 2 `ui `ux -> -> # *U &U . _gameState 0 `ui `ux 0 -> 1 `i ]
+"247
+[; ;newmain.c: 247:     }
+}
+[e $U 372  ]
+"248
+[; ;newmain.c: 248:     else{
+[e :U 369 ]
+{
+"250
+[; ;newmain.c: 250:     }
+}
+[e :U 372 ]
+[e :U 368 ]
+[e :U 364 ]
+[e :U 360 ]
+"251
+[; ;newmain.c: 251:     previous_portb = current_portb;
+[e = _previous_portb _current_portb ]
+"254
+[; ;newmain.c: 254:     moveSelectedPlayerPositionOnLCD(oldX, oldY,
+[e ( _moveSelectedPlayerPositionOnLCD (4 , , , , _oldX _oldY . *U + &U . _gameState 0 * -> -> . _gameState 2 `ui `ux -> -> # *U &U . _gameState 0 `ui `ux 0 . *U + &U . _gameState 0 * -> -> . _gameState 2 `ui `ux -> -> # *U &U . _gameState 0 `ui `ux 1 . _gameState 2 ]
+"258
+[; ;newmain.c: 258:     if (frisbeeHeld()) {
+[e $ ! != ( _frisbeeHeld ..  -> 0 `i 373  ]
+{
+"259
+[; ;newmain.c: 259:         frisbeeHeldOnLCD();
+[e ( _frisbeeHeldOnLCD ..  ]
+"260
+[; ;newmain.c: 260:     }
+}
+[e :U 373 ]
+"261
+[; ;newmain.c: 261:     if (hasPlayerLeftFrisbeeLocation()) {
+[e $ ! != ( _hasPlayerLeftFrisbeeLocation ..  -> 0 `i 374  ]
+{
+"262
+[; ;newmain.c: 262:         frisbeeReleasedOnLCD();
+[e ( _frisbeeReleasedOnLCD ..  ]
+"263
+[; ;newmain.c: 263:     }
+}
+[e :U 374 ]
+"265
+[; ;newmain.c: 265: }
+[e :UE 356 ]
+}
+"267
+[; ;newmain.c: 267: void initRegisters(){
+[v _initRegisters `(v ~T0 @X0 1 ef ]
+{
+[e :U _initRegisters ]
+[f ]
+"270
+[; ;newmain.c: 270:     TRISB = 0;
+[e = _TRISB -> -> 0 `i `uc ]
+"271
+[; ;newmain.c: 271:     TRISBbits.RB0 = 1;
+[e = . . _TRISBbits 1 0 -> -> 1 `i `uc ]
+"272
+[; ;newmain.c: 272:     TRISBbits.RB1 = 1;
+[e = . . _TRISBbits 1 1 -> -> 1 `i `uc ]
+"273
+[; ;newmain.c: 273:     TRISBbits.RB4 = 1;
+[e = . . _TRISBbits 1 4 -> -> 1 `i `uc ]
+"274
+[; ;newmain.c: 274:     TRISBbits.RB5 = 1;
+[e = . . _TRISBbits 1 5 -> -> 1 `i `uc ]
+"275
+[; ;newmain.c: 275:     TRISBbits.RB6 = 1;
+[e = . . _TRISBbits 1 6 -> -> 1 `i `uc ]
+"276
+[; ;newmain.c: 276:     TRISBbits.RB7 = 1;
+[e = . . _TRISBbits 1 7 -> -> 1 `i `uc ]
+"277
+[; ;newmain.c: 277:     LATB = 0;
+[e = _LATB -> -> 0 `i `uc ]
+"279
+[; ;newmain.c: 279:     INTCONbits.RBIF = 0;
+[e = . . _INTCONbits 0 0 -> -> 0 `i `uc ]
+"280
+[; ;newmain.c: 280:     INTCONbits.RBIE = 1;
+[e = . . _INTCONbits 0 3 -> -> 1 `i `uc ]
+"281
+[; ;newmain.c: 281:     LATB = 0;
+[e = _LATB -> -> 0 `i `uc ]
+"283
+[; ;newmain.c: 283:     INTCONbits.INT0IE = 1;
+[e = . . _INTCONbits 0 4 -> -> 1 `i `uc ]
+"284
+[; ;newmain.c: 284:     INTCONbits.INT0IF = 0;
+[e = . . _INTCONbits 0 1 -> -> 0 `i `uc ]
+"285
+[; ;newmain.c: 285:     LATB = 0;
+[e = _LATB -> -> 0 `i `uc ]
+"287
+[; ;newmain.c: 287:     INTCON3bits.INT1IE = 1;
+[e = . . _INTCON3bits 0 3 -> -> 1 `i `uc ]
+"288
+[; ;newmain.c: 288:     INTCON3bits.INT1IF = 0;
+[e = . . _INTCON3bits 0 0 -> -> 0 `i `uc ]
+"291
+[; ;newmain.c: 291:     INTCONbits.GIE = 1;
+[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
+"292
+[; ;newmain.c: 292:     INTCONbits.PEIE = 1;
+[e = . . _INTCONbits 1 6 -> -> 1 `i `uc ]
+"294
+[; ;newmain.c: 294:     INTCONbits.TMR0IE = 1;
+[e = . . _INTCONbits 0 5 -> -> 1 `i `uc ]
+"296
+[; ;newmain.c: 296:     T0CON = 0b10000111;
+[e = _T0CON -> -> 135 `i `uc ]
+"297
+[; ;newmain.c: 297:     TMR0 = 62611;
+[e = _TMR0 -> -> 62611 `l `us ]
+"301
+[; ;newmain.c: 301:     T1CON = 0;
+[e = _T1CON -> -> 0 `i `uc ]
+"302
+[; ;newmain.c: 302:     TMR1 = 0;
+[e = _TMR1 -> -> 0 `i `us ]
+"303
+[; ;newmain.c: 303:     T1CONbits.TMR1ON = 1;
+[e = . . _T1CONbits 1 0 -> -> 1 `i `uc ]
+"306
+[; ;newmain.c: 306:     LATB = 0;
+[e = _LATB -> -> 0 `i `uc ]
+"307
+[; ;newmain.c: 307:     PORTB;;
+[e _PORTB ]
+"308
+[; ;newmain.c: 308: }
+[e :UE 375 ]
+}
+"310
+[; ;newmain.c: 310: void switchSelectedPlayer(){
+[v _switchSelectedPlayer `(v ~T0 @X0 1 ef ]
+{
+[e :U _switchSelectedPlayer ]
+[f ]
+"311
+[; ;newmain.c: 311:     PORTB;;
+[e _PORTB ]
+"312
+[; ;newmain.c: 312:     LATB = 0;
+[e = _LATB -> -> 0 `i `uc ]
+"313
+[; ;newmain.c: 313:     LATA = 0;
+[e = _LATA -> -> 0 `i `uc ]
+"314
+[; ;newmain.c: 314:     LATD = 0;
+[e = _LATD -> -> 0 `i `uc ]
+"317
+[; ;newmain.c: 317:     int oldX, oldY,newX,newY;
+[v _oldX `i ~T0 @X0 1 a ]
+[v _oldY `i ~T0 @X0 1 a ]
+[v _newX `i ~T0 @X0 1 a ]
+[v _newY `i ~T0 @X0 1 a ]
+"318
+[; ;newmain.c: 318:     int selected_player = gameState.selected_player;
+[v _selected_player `i ~T0 @X0 1 a ]
+[e = _selected_player . _gameState 2 ]
+"320
+[; ;newmain.c: 320:     oldX = gameState.player_positions[selected_player].x;
+[e = _oldX . *U + &U . _gameState 0 * -> -> _selected_player `ui `ux -> -> # *U &U . _gameState 0 `ui `ux 0 ]
+"321
+[; ;newmain.c: 321:     oldY = gameState.player_positions[selected_player].y;
+[e = _oldY . *U + &U . _gameState 0 * -> -> _selected_player `ui `ux -> -> # *U &U . _gameState 0 `ui `ux 1 ]
+"324
+[; ;newmain.c: 324:     LCDGoto(oldX,oldY);
+[e ( _LCDGoto (2 , -> _oldX `uc -> _oldY `uc ]
+"325
+[; ;newmain.c: 325:     LCDStr(" ");
+[e ( _LCDStr (1 :s 4C ]
+"326
+[; ;newmain.c: 326:     LCDGoto(oldX,oldY);
+[e ( _LCDGoto (2 , -> _oldX `uc -> _oldY `uc ]
+"327
+[; ;newmain.c: 327:     LCDDat (selected_player < 2 ? 1:3);
+[e ( _LCDDat (1 -> ? < _selected_player -> 2 `i : -> 1 `i -> 3 `i `uc ]
+"330
+[; ;newmain.c: 330:     selected_player = (selected_player+1) % 4;
+[e = _selected_player % + _selected_player -> 1 `i -> 4 `i ]
+"331
+[; ;newmain.c: 331:     gameState.selected_player = selected_player;
+[e = . _gameState 2 _selected_player ]
+"333
+[; ;newmain.c: 333:     newX = gameState.player_positions[selected_player].x;
+[e = _newX . *U + &U . _gameState 0 * -> -> _selected_player `ui `ux -> -> # *U &U . _gameState 0 `ui `ux 0 ]
+"334
+[; ;newmain.c: 334:     newY = gameState.player_positions[selected_player].y;
+[e = _newY . *U + &U . _gameState 0 * -> -> _selected_player `ui `ux -> -> # *U &U . _gameState 0 `ui `ux 1 ]
+"337
+[; ;newmain.c: 337:     LCDGoto(newX,newY);
+[e ( _LCDGoto (2 , -> _newX `uc -> _newY `uc ]
+"338
+[; ;newmain.c: 338:     LCDStr(" ");
+[e ( _LCDStr (1 :s 5C ]
+"339
+[; ;newmain.c: 339:     LCDGoto(newX,newY);
+[e ( _LCDGoto (2 , -> _newX `uc -> _newY `uc ]
+"340
+[; ;newmain.c: 340:     LCDDat (selected_player < 2 ? 0:2);
+[e ( _LCDDat (1 -> ? < _selected_player -> 2 `i : -> 0 `i -> 2 `i `uc ]
+"342
+[; ;newmain.c: 342:     LATB = 0;
+[e = _LATB -> -> 0 `i `uc ]
+"344
+[; ;newmain.c: 344: }
+[e :UE 376 ]
+}
+"347
+[; ;newmain.c: 347: void throwFrisbee(){
+[v _throwFrisbee `(v ~T0 @X0 1 ef ]
+{
+[e :U _throwFrisbee ]
+[f ]
+"350
+[; ;newmain.c: 350:     gameState.game_mode = 1;
+[e = . _gameState 5 -> 1 `i ]
+"351
+[; ;newmain.c: 351: }
+[e :UE 377 ]
+}
 [v $root$_FNC `(v ~T0 @X0 0 e ]
-"86
-[; ;newmain.c: 86: void __attribute__((picinterrupt(("high_priority")))) FNC()
+"354
+[; ;newmain.c: 354: void __attribute__((picinterrupt(("high_priority")))) FNC()
 [v _FNC `(v ~T39 @X0 1 ef ]
-"87
-[; ;newmain.c: 87: {
+"355
+[; ;newmain.c: 355: {
 {
 [e :U _FNC ]
 [f ]
-"89
-[; ;newmain.c: 89:     if (TMR0IF) {
-[e $ ! _TMR0IF 343  ]
+"358
+[; ;newmain.c: 358:     if (TMR0IF) {
+[e $ ! _TMR0IF 379  ]
 {
-"90
-[; ;newmain.c: 90:         TMR0IF = 0;
+"359
+[; ;newmain.c: 359:         TMR0IF = 0;
 [e = _TMR0IF -> -> 0 `i `b ]
-"91
-[; ;newmain.c: 91:         TMR0 = 100;
-[e = _TMR0 -> -> 100 `i `us ]
-"93
-[; ;newmain.c: 93:         switch (display_state) {
-[e $U 345  ]
-{
-"94
-[; ;newmain.c: 94:             case 0:
-[e :U 346 ]
-"95
-[; ;newmain.c: 95:                 TRISA = 0b00000000;
-[e = _TRISA -> -> 0 `i `uc ]
-"96
-[; ;newmain.c: 96:                 PORTD = digits[gameState.teamA_score];
-[e = _PORTD *U + &U _digits * -> -> . _gameState 3 `ui `ux -> -> # *U &U _digits `ui `ux ]
-"97
-[; ;newmain.c: 97:                 PORTA = 0b00001000;
-[e = _PORTA -> -> 8 `i `uc ]
-"98
-[; ;newmain.c: 98:                 break;
-[e $U 344  ]
-"99
-[; ;newmain.c: 99:             case 1:
-[e :U 347 ]
-"100
-[; ;newmain.c: 100:                 TRISA = 0b00000000;
-[e = _TRISA -> -> 0 `i `uc ]
-"101
-[; ;newmain.c: 101:                 PORTD = dash;
-[e = _PORTD _dash ]
-"102
-[; ;newmain.c: 102:                 LATA = 0b00010000;
-[e = _LATA -> -> 16 `i `uc ]
-"103
-[; ;newmain.c: 103:                 break;
-[e $U 344  ]
-"104
-[; ;newmain.c: 104:             case 2:
-[e :U 348 ]
-"105
-[; ;newmain.c: 105:                 TRISA = 0b00000000;
-[e = _TRISA -> -> 0 `i `uc ]
-"106
-[; ;newmain.c: 106:                 PORTD = digits[gameState.teamB_score];
-[e = _PORTD *U + &U _digits * -> -> . _gameState 4 `ui `ux -> -> # *U &U _digits `ui `ux ]
-"107
-[; ;newmain.c: 107:                 LATA = 0b00100000;
-[e = _LATA -> -> 32 `i `uc ]
-"108
-[; ;newmain.c: 108:                 break;
-[e $U 344  ]
-"109
-[; ;newmain.c: 109:         }
+"360
+[; ;newmain.c: 360:         TMR0 = 62611;
+[e = _TMR0 -> -> 62611 `l `us ]
+"362
+[; ;newmain.c: 362:     }
 }
-[e $U 344  ]
-[e :U 345 ]
-[e [\ _display_state , $ -> 0 `i 346
- , $ -> 1 `i 347
- , $ -> 2 `i 348
- 344 ]
-[e :U 344 ]
-"111
-[; ;newmain.c: 111:         display_state = (display_state + 1) % 3;
-[e = _display_state % + _display_state -> 1 `i -> 3 `i ]
-"112
-[; ;newmain.c: 112:     }
-}
-[e :U 343 ]
-"114
-[; ;newmain.c: 114:     if(INTCONbits.INT0IF)
-[e $ ! != -> . . _INTCONbits 0 1 `i -> 0 `i 349  ]
-"115
-[; ;newmain.c: 115:     {
+[e :U 379 ]
+"364
+[; ;newmain.c: 364:     if(INTCONbits.INT0IF) {
+[e $ ! != -> . . _INTCONbits 0 1 `i -> 0 `i 380  ]
 {
-"117
-[; ;newmain.c: 117:         CONVERT = 1;
-[e = _CONVERT -> -> 1 `i `uc ]
-"118
-[; ;newmain.c: 118:         INTCONbits.INT0IF = 0;
+"365
+[; ;newmain.c: 365:         INTCONbits.INT0IF = 0;
 [e = . . _INTCONbits 0 1 -> -> 0 `i `uc ]
-"119
-[; ;newmain.c: 119:     }
-}
-[e :U 349 ]
-"121
-[; ;newmain.c: 121:     if(INTCONbits.RBIF)
-[e $ ! != -> . . _INTCONbits 0 0 `i -> 0 `i 350  ]
-"122
-[; ;newmain.c: 122:     {
+"366
+[; ;newmain.c: 366:         if(!frisbee_held){
+[e $ ! ! != _frisbee_held -> 0 `i 381  ]
 {
-"124
-[; ;newmain.c: 124:         int oldX = gameState.player_positions[gameState.selected_player].x;
-[v _oldX `i ~T0 @X0 1 a ]
-[e = _oldX . *U + &U . _gameState 0 * -> -> . _gameState 2 `ui `ux -> -> # *U &U . _gameState 0 `ui `ux 0 ]
-"125
-[; ;newmain.c: 125:         int oldY = gameState.player_positions[gameState.selected_player].y;
-[v _oldY `i ~T0 @X0 1 a ]
-[e = _oldY . *U + &U . _gameState 0 * -> -> . _gameState 2 `ui `ux -> -> # *U &U . _gameState 0 `ui `ux 1 ]
-"128
-[; ;newmain.c: 128:         if(PORTBbits.RB4)
-[e $ ! != -> . . _PORTBbits 0 4 `i -> 0 `i 351  ]
-"129
-[; ;newmain.c: 129:         {
-{
-"130
-[; ;newmain.c: 130:             printf("Up button!!\n");
-[e ( _printf :s 2C ]
-"131
-[; ;newmain.c: 131:             gameState.player_positions[gameState.selected_player].y--;
-[e -- . *U + &U . _gameState 0 * -> -> . _gameState 2 `ui `ux -> -> # *U &U . _gameState 0 `ui `ux 1 -> 1 `i ]
-"132
-[; ;newmain.c: 132:         }
+"367
+[; ;newmain.c: 367:             return;
+[e $UE 378  ]
+"368
+[; ;newmain.c: 368:         }
 }
-[e $U 352  ]
-"133
-[; ;newmain.c: 133:         else if(PORTBbits.RB5)
-[e :U 351 ]
-[e $ ! != -> . . _PORTBbits 0 5 `i -> 0 `i 353  ]
-"134
-[; ;newmain.c: 134:         {
-{
-"135
-[; ;newmain.c: 135:             gameState.player_positions[gameState.selected_player].y++;
-[e ++ . *U + &U . _gameState 0 * -> -> . _gameState 2 `ui `ux -> -> # *U &U . _gameState 0 `ui `ux 1 -> 1 `i ]
-"136
-[; ;newmain.c: 136:         }
+[e :U 381 ]
+"369
+[; ;newmain.c: 369:         throwFrisbee();
+[e ( _throwFrisbee ..  ]
+"370
+[; ;newmain.c: 370:     }
 }
-[e $U 354  ]
-"137
-[; ;newmain.c: 137:         else if(PORTBbits.RB6)
-[e :U 353 ]
-[e $ ! != -> . . _PORTBbits 0 6 `i -> 0 `i 355  ]
-"138
-[; ;newmain.c: 138:         {
+[e :U 380 ]
+"372
+[; ;newmain.c: 372:     if(INTCON3bits.INT1IF) {
+[e $ ! != -> . . _INTCON3bits 0 0 `i -> 0 `i 382  ]
 {
-"139
-[; ;newmain.c: 139:             gameState.player_positions[gameState.selected_player].x--;
-[e -- . *U + &U . _gameState 0 * -> -> . _gameState 2 `ui `ux -> -> # *U &U . _gameState 0 `ui `ux 0 -> 1 `i ]
-"140
-[; ;newmain.c: 140:         }
-}
-[e $U 356  ]
-"141
-[; ;newmain.c: 141:         else if(PORTBbits.RB7)
-[e :U 355 ]
-[e $ ! != -> . . _PORTBbits 0 7 `i -> 0 `i 357  ]
-"142
-[; ;newmain.c: 142:         {
+"373
+[; ;newmain.c: 373:         _delay((unsigned long)((50)*(40000000L/4000.0)));
+[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 40000000 `l `d .4000.0 `ul ]
+"374
+[; ;newmain.c: 374:         INTCON3bits.INT1IF = 0;
+[e = . . _INTCON3bits 0 0 -> -> 0 `i `uc ]
+"375
+[; ;newmain.c: 375:         random_generator(9);
+[e ( _random_generator (1 -> -> 9 `i `us ]
+"376
+[; ;newmain.c: 376:         if(gameState.game_mode == 0){
+[e $ ! == . _gameState 5 -> 0 `i 383  ]
 {
-"143
-[; ;newmain.c: 143:             gameState.player_positions[gameState.selected_player].x++;
-[e ++ . *U + &U . _gameState 0 * -> -> . _gameState 2 `ui `ux -> -> # *U &U . _gameState 0 `ui `ux 0 -> 1 `i ]
-"144
-[; ;newmain.c: 144:         }
+"377
+[; ;newmain.c: 377:             return;
+[e $UE 378  ]
+"378
+[; ;newmain.c: 378:         }
 }
-[e :U 357 ]
-[e :U 356 ]
-[e :U 354 ]
-[e :U 352 ]
-"146
-[; ;newmain.c: 146:         updatePlayerPositionOnLCD(oldX, oldY,
-[e ( _updatePlayerPositionOnLCD (4 , , , , _oldX _oldY . *U + &U . _gameState 0 * -> -> . _gameState 2 `ui `ux -> -> # *U &U . _gameState 0 `ui `ux 0 . *U + &U . _gameState 0 * -> -> . _gameState 2 `ui `ux -> -> # *U &U . _gameState 0 `ui `ux 1 . _gameState 2 ]
-"155
-[; ;newmain.c: 155:         INTCONbits.RBIF = 0;
+[e :U 383 ]
+"379
+[; ;newmain.c: 379:         switchSelectedPlayer();
+[e ( _switchSelectedPlayer ..  ]
+"380
+[; ;newmain.c: 380:     }
+}
+[e :U 382 ]
+"382
+[; ;newmain.c: 382:     if(INTCONbits.RBIF) {
+[e $ ! != -> . . _INTCONbits 0 0 `i -> 0 `i 384  ]
+{
+"383
+[; ;newmain.c: 383:         PORTB;;
+[e _PORTB ]
+"384
+[; ;newmain.c: 384:         INTCONbits.RBIF = 0;
 [e = . . _INTCONbits 0 0 -> -> 0 `i `uc ]
-"156
-[; ;newmain.c: 156:     }
+"385
+[; ;newmain.c: 385:         gamepadPressed();
+[e ( _gamepadPressed ..  ]
+"386
+[; ;newmain.c: 386:     }
 }
-[e :U 350 ]
-"158
-[; ;newmain.c: 158: }
-[e :UE 342 ]
+[e :U 384 ]
+"388
+[; ;newmain.c: 388:     if(PIR1bits.TMR1IF) {
+[e $ ! != -> . . _PIR1bits 0 0 `i -> 0 `i 385  ]
+{
+"389
+[; ;newmain.c: 389:         PIR1bits.TMR1IF = 0;
+[e = . . _PIR1bits 0 0 -> -> 0 `i `uc ]
+"390
+[; ;newmain.c: 390:     }
+}
+[e :U 385 ]
+"392
+[; ;newmain.c: 392: }
+[e :UE 378 ]
 }
 [v $root$_main `(v ~T0 @X0 0 e ]
-"163
-[; ;newmain.c: 163: void main(void) {
+"394
+[; ;newmain.c: 394: void main(void) {
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"165
-[; ;newmain.c: 165:     initADC();
+"396
+[; ;newmain.c: 396:     initADC();
 [e ( _initADC ..  ]
-"167
-[; ;newmain.c: 167:     InitLCD();
+"398
+[; ;newmain.c: 398:     InitLCD();
 [e ( _InitLCD ..  ]
-"168
-[; ;newmain.c: 168:     LATB = 0;
-[e = _LATB -> -> 0 `i `uc ]
-"183
-[; ;newmain.c: 183:     LCDAddSpecialCharacter(0, selected_teamA_player);
-[e ( _LCDAddSpecialCharacter (2 , -> -> 0 `i `uc &U _selected_teamA_player ]
-"184
-[; ;newmain.c: 184:     LCDAddSpecialCharacter(1, teamA_player);
-[e ( _LCDAddSpecialCharacter (2 , -> -> 1 `i `uc &U _teamA_player ]
-"185
-[; ;newmain.c: 185:     LCDAddSpecialCharacter(2, teamB_player);
-[e ( _LCDAddSpecialCharacter (2 , -> -> 2 `i `uc &U _teamB_player ]
-"186
-[; ;newmain.c: 186:     LCDAddSpecialCharacter(3, teamB_player);
-[e ( _LCDAddSpecialCharacter (2 , -> -> 3 `i `uc &U _teamB_player ]
-"187
-[; ;newmain.c: 187:     LCDAddSpecialCharacter(4, frisbee);
-[e ( _LCDAddSpecialCharacter (2 , -> -> 4 `i `uc &U _frisbee ]
-"188
-[; ;newmain.c: 188:     LCDGoto(3, 2);
-[e ( _LCDGoto (2 , -> -> 3 `i `uc -> -> 2 `i `uc ]
-"189
-[; ;newmain.c: 189:     LCDDat(0);
-[e ( _LCDDat (1 -> -> 0 `i `uc ]
-"190
-[; ;newmain.c: 190:     LCDGoto(3, 3);
-[e ( _LCDGoto (2 , -> -> 3 `i `uc -> -> 3 `i `uc ]
-"191
-[; ;newmain.c: 191:     LCDDat(1);
-[e ( _LCDDat (1 -> -> 1 `i `uc ]
-"193
-[; ;newmain.c: 193:     LCDGoto(14, 2);
-[e ( _LCDGoto (2 , -> -> 14 `i `uc -> -> 2 `i `uc ]
-"194
-[; ;newmain.c: 194:     LCDDat(2);
-[e ( _LCDDat (1 -> -> 2 `i `uc ]
-"196
-[; ;newmain.c: 196:     LCDGoto(14, 3);
-[e ( _LCDGoto (2 , -> -> 14 `i `uc -> -> 3 `i `uc ]
-"197
-[; ;newmain.c: 197:     LCDDat(3);
-[e ( _LCDDat (1 -> -> 3 `i `uc ]
-"199
-[; ;newmain.c: 199:     LCDGoto(9, 2);
-[e ( _LCDGoto (2 , -> -> 9 `i `uc -> -> 2 `i `uc ]
-"200
-[; ;newmain.c: 200:     LCDDat(4);
-[e ( _LCDDat (1 -> -> 4 `i `uc ]
-[v F3016 `uc ~T0 @X0 -> 10 `i s ]
-[i F3016
-:U ..
-"204
-[; ;newmain.c: 204:     char values[10] = {0};
--> -> 0 `i `uc
-..
-]
-[v _values `uc ~T0 @X0 -> 10 `i a ]
-[e = _values F3016 ]
-"206
-[; ;newmain.c: 206:     unsigned short convertion = 0;
-[v _convertion `us ~T0 @X0 1 a ]
-[e = _convertion -> -> 0 `i `us ]
-"207
-[; ;newmain.c: 207:     TRISBbits.RB0 = 1;
-[e = . . _TRISBbits 1 0 -> -> 1 `i `uc ]
-"208
-[; ;newmain.c: 208:     TRISBbits.RB4 = 1;
-[e = . . _TRISBbits 1 4 -> -> 1 `i `uc ]
-"209
-[; ;newmain.c: 209:     TRISBbits.RB5 = 1;
-[e = . . _TRISBbits 1 5 -> -> 1 `i `uc ]
-"210
-[; ;newmain.c: 210:     TRISBbits.RB6 = 1;
-[e = . . _TRISBbits 1 6 -> -> 1 `i `uc ]
-"211
-[; ;newmain.c: 211:     TRISBbits.RB7 = 1;
-[e = . . _TRISBbits 1 7 -> -> 1 `i `uc ]
-"214
-[; ;newmain.c: 214:     INTCONbits.RBIE = 1;
-[e = . . _INTCONbits 0 3 -> -> 1 `i `uc ]
-"217
-[; ;newmain.c: 217:     INTCONbits.RBIF = 0;
-[e = . . _INTCONbits 0 0 -> -> 0 `i `uc ]
-"223
-[; ;newmain.c: 223:     INTCONbits.INT0IE = 1;
-[e = . . _INTCONbits 0 4 -> -> 1 `i `uc ]
-"224
-[; ;newmain.c: 224:     INTCONbits.INT0IF = 0;
-[e = . . _INTCONbits 0 1 -> -> 0 `i `uc ]
-"225
-[; ;newmain.c: 225:     INTCONbits.GIE = 1;
-[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
-"226
-[; ;newmain.c: 226:     INTCONbits.PEIE = 1;
-[e = . . _INTCONbits 1 6 -> -> 1 `i `uc ]
-"227
-[; ;newmain.c: 227:     INTCONbits.TMR0IE = 1;
-[e = . . _INTCONbits 0 5 -> -> 1 `i `uc ]
-"229
-[; ;newmain.c: 229:     T0CON = 0b11000111;
-[e = _T0CON -> -> 199 `i `uc ]
-"230
-[; ;newmain.c: 230:     while(1)
-[e :U 360 ]
-"231
-[; ;newmain.c: 231:     {
+"400
+[; ;newmain.c: 400:     initRegisters();
+[e ( _initRegisters ..  ]
+"402
+[; ;newmain.c: 402:     setInitialState();
+[e ( _setInitialState ..  ]
+"404
+[; ;newmain.c: 404:     while(1)
+[e :U 388 ]
+"405
+[; ;newmain.c: 405:     {
 {
-"232
-[; ;newmain.c: 232:         if(CONVERT == 1)
-[e $ ! == -> _CONVERT `i -> 1 `i 362  ]
-"233
-[; ;newmain.c: 233:         {
-{
-"234
-[; ;newmain.c: 234:             convertion = readADCChannel(0);
-[e = _convertion ( _readADCChannel (1 -> -> 0 `i `uc ]
-"239
-[; ;newmain.c: 239:             CONVERT = 0;
-[e = _CONVERT -> -> 0 `i `uc ]
-"240
-[; ;newmain.c: 240:         }
+"406
+[; ;newmain.c: 406:         display_7seg();
+[e ( _display_7seg ..  ]
+"407
+[; ;newmain.c: 407:     }
 }
-[e :U 362 ]
-"242
-[; ;newmain.c: 242:     }
+[e :U 387 ]
+[e $U 388  ]
+[e :U 389 ]
+"408
+[; ;newmain.c: 408: }
+[e :UE 386 ]
 }
-[e :U 359 ]
-[e $U 360  ]
-[e :U 361 ]
-"246
-[; ;newmain.c: 246:     return;
-[e $UE 358  ]
-"247
-[; ;newmain.c: 247: }
-[e :UE 358 ]
-}
-[p f _printf 8388736 ]
-[a 1C 85 112 100 97 116 105 110 103 32 112 108 97 121 101 114 32 112 111 115 105 116 105 111 110 32 102 114 111 109 32 40 37 100 44 32 37 100 41 32 116 111 32 40 37 100 44 32 37 100 41 10 0 ]
-[a 2C 85 112 32 98 117 116 116 111 110 33 33 10 0 ]
+[a 1C 32 0 ]
+[a 2C 32 0 ]
+[a 3C 32 0 ]
+[a 4C 32 0 ]
+[a 5C 32 0 ]
