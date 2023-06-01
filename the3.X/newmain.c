@@ -12,15 +12,15 @@
 
 #define LCD_HORIZONTAL 16
 #define LCD_VERTICAL 4
-#define TIMER0_INITIAL_VALUE 59625
-#define TIMER2_INITIAL_VALUE 159
+int TIMER0_INITIAL_VALUE;
+int TIMER2_INITIAL_VALUE = 159;
 volatile char CONVERT=0;
 volatile char gamepad_button_pressed=0;
 byte previous_portb = 0;
-byte debounce_flag = 0;
 int frisbee_held = 0;
 int current_step = 0;
 int blink_flag = 0;
+int adc;
 
 unsigned char digits[10] = {
     0b00111111, // 0
@@ -54,7 +54,7 @@ typedef struct {
 
 GameState gameState = {
     .player_positions = {
-        {8,2},
+        {3,2},
         {3,3},
         {14,2},
         {14,3}
@@ -68,7 +68,9 @@ GameState gameState = {
 };
 
 volatile int display_state = 0;
-
+int bitChangedToZero(unsigned char prev, unsigned char curr, int bit) {
+    return (prev & (1 << bit)) && !(curr & (1 << bit));
+}
 void moveSelectedPlayerPositionOnLCD(int oldX, int oldY, int newX, int newY, int selectedPlayer)
 {
     LATA = 0;
@@ -92,7 +94,7 @@ void setInitialState(){
     LCDAddSpecialCharacter(6, selected_teamB_player_with_frisbee);
     LCDAddSpecialCharacter(7,frisbee_target);
     
-    LCDGoto(8, 2);
+    LCDGoto(3, 2);
     LCDDat(0);
     
     LCDGoto(3, 3);
@@ -198,7 +200,7 @@ void gamepadPressed() {
     //TODO: Buraya bakmak lazim
     
     // Check which button was pressed
-    if (((previous_portb & 0b00010000) == 0b00010000) && ((current_portb & 0b00010000) == 0)) // RB4 Up button pressed
+    if (bitChangedToZero(previous_portb,current_portb,4)) // RB4 Up button pressed
     {
         if (gameState.player_positions[gameState.selected_player].y == 1){
             return;
@@ -208,7 +210,7 @@ void gamepadPressed() {
         }
         
         gameState.player_positions[gameState.selected_player].y--;
-    } else if (((previous_portb & 0b01000000) == 0b01000000) && ((current_portb & 0b01000000) == 0)) // RB6 Down button pressed
+    } else if (bitChangedToZero(previous_portb,current_portb,6)) // RB6 Down button pressed
     {
         if (gameState.player_positions[gameState.selected_player].y == LCD_VERTICAL){
             return;
@@ -217,7 +219,7 @@ void gamepadPressed() {
             return;
         }
         gameState.player_positions[gameState.selected_player].y++;
-    } else if (((previous_portb & 0b10000000) == 0b10000000) && ((current_portb & 0b10000000) == 0)) // RB7 Left button pressed
+    } else if (bitChangedToZero(previous_portb,current_portb,7)) // RB7 Left button pressed
     {
         if (gameState.player_positions[gameState.selected_player].x == 1) {
             return;
@@ -226,7 +228,7 @@ void gamepadPressed() {
             return;
         }
         gameState.player_positions[gameState.selected_player].x--;
-    } else if (((previous_portb & 0b00100000) == 0b00100000) && ((current_portb & 0b00100000) == 0)) // RB5 Right button pressed 
+    } else if (bitChangedToZero(previous_portb,current_portb,5)) // RB5 Right button pressed 
     {
         if (gameState.player_positions[gameState.selected_player].x == LCD_HORIZONTAL) {
             return;
@@ -313,8 +315,7 @@ void switchSelectedPlayer(){
     LATB = 0;
     LATA = 0;
     LATD = 0;
-    
-    
+
     int oldX, oldY,newX,newY;
     int selected_player = gameState.selected_player;
     
@@ -437,15 +438,116 @@ void moveFrisbee(){
 
 
 void blink (){
-    if (blink_flag){
-        LCDGoto(target_x,target_y);
-        LCDDat(7);
-        blink_flag = 0;
+    LCDGoto(target_x,target_y);
+    LCDDat(blink_flag ? 7 : ' ');
+    blink_flag = !blink_flag;
+}
+
+
+int isValidNPCMove(int selected_npc, int random_direction){
+    int x,y;
+    x = gameState.player_positions[selected_npc].x;
+    y = gameState.player_positions[selected_npc].y;
+    
+    switch (random_direction){
+        case 0: // Up
+            y -= 1;
+            break;
+        case 1: // Down
+            y += 1;
+            break;
+        case 2: // Right
+            x += 1;
+            break;
+        case 3: // Left
+            x -= 1;
+            break;
+        case 4: // Up - Left
+            y--;
+            x--;
+            break;
+
+        case 5: // Down - Left
+            y++;
+            x--;
+            break;
+
+        case 6: // Right - Up
+            y--;
+            x++;
+            break;
+
+        case 7: // Right - Down
+            y++;
+            x++;
+            break;
     }
-    else{
-        LCDGoto(target_x,target_y);
-        LCDStr(" ");
-        blink_flag = 1;
+                
+    if (isThereAnyPlayer(x,y) || (x == target_x && y == target_y) || (x>16 || x<1 || y>4 || y<1)  ){
+        return 0;
+    }
+    return 1;
+}
+
+
+void npcMove(){
+    int selected_player = gameState.selected_player, random_direction;
+    for(int i=0; i<4;i++){
+        if(i==selected_player){
+            continue;
+        }
+        
+        int oldX,oldY,isValidMove;
+        oldX = gameState.player_positions[i].x;
+        oldY = gameState.player_positions[i].y;
+        random_direction = random_generator(8);
+        isValidMove = isValidNPCMove(i,random_direction);
+        if(!isValidMove){
+            return;
+        }
+        
+        switch (random_direction){
+            case 0: // Up
+                gameState.player_positions[i].y -= isValidMove ? 1 : 0;
+                break;
+            
+            case 1: // Down
+                gameState.player_positions[i].y += isValidMove ? 1 : 0;
+                break;
+            
+            case 2: // Right
+                gameState.player_positions[i].x += isValidMove ? 1 : 0;
+                break;
+            
+            case 3: // Left
+                gameState.player_positions[i].x -= isValidMove ? 1 : 0;
+                break;
+            case 4: // Up - Left
+                gameState.player_positions[i].y--;
+                gameState.player_positions[i].x--;
+                break;
+            
+            case 5: // Down - Left
+                gameState.player_positions[i].y++;
+                gameState.player_positions[i].x--;
+                break;
+            
+            case 6: // Right - Up
+                gameState.player_positions[i].y--;
+                gameState.player_positions[i].x++;
+                break;
+            
+            case 7: // Right - Down
+                gameState.player_positions[i].y++;
+                gameState.player_positions[i].x++;
+                break;
+        }
+        
+        LCDGoto(oldX,oldY);
+        LCDDat(' ');
+        LCDGoto(gameState.player_positions[i].x,gameState.player_positions[i].y);
+        LCDDat(i<2 ? 1 : 3);
+            
     }
 }
 
@@ -458,6 +560,7 @@ void __interrupt(high_priority) FNC()
         TMR0IF = 0; // Clear the interrupt flag
         if(gameState.game_mode == 0) { //If frisbee is flying
             moveFrisbee();
+            npcMove();
         }
         TMR0 = TIMER0_INITIAL_VALUE; // Reset the timer count
     }
@@ -476,7 +579,6 @@ void __interrupt(high_priority) FNC()
     }
     
     if(INTCONbits.INT0IF) { // RB0 button was pressed, throw the frisbee
-        __delay_ms(50);
         INTCONbits.INT0IF = 0;
         if(frisbee_held){ // If frisbee is not held by selected player don't do anything
             throwFrisbee();
@@ -485,7 +587,7 @@ void __interrupt(high_priority) FNC()
     }
     
     if(INTCON3bits.INT1IF) { // RB1 button was pressed, change the player
-        __delay_ms(50);
+        __delay_ms(30);
         INTCON3bits.INT1IF = 0;
         if(frisbee_held){ //If player is holding the frisbee don't switch player
             return;
@@ -503,6 +605,8 @@ void __interrupt(high_priority) FNC()
     
 }
 
+char values[10] = {0};
+
 void main(void) { 
     
     initADC();
@@ -512,9 +616,26 @@ void main(void) {
     initRegisters();
     
     setInitialState();
-    
+
     while(1)
     {
+        adc = readADCChannel(0);
+        
+        if(adc<256){
+            TIMER0_INITIAL_VALUE = 62410;
+        }
+        else if(adc<512){
+            TIMER0_INITIAL_VALUE = 59285;
+
+        }
+        else if(adc<768){
+            TIMER0_INITIAL_VALUE = 56160;
+
+        }
+        else{
+            TIMER0_INITIAL_VALUE = 53035;
+        }
+        
         display_7seg();
     }
 }

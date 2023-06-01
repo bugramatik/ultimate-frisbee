@@ -3,7 +3,9 @@
 [d edition pro ]
 [d chip 18F4620 ]
 [d frameptr 4065 ]
-"35 /home/bs2019/e2380871/Downloads/the3.X/ADC.h
+"13 /home/bs2019/e2380871/Downloads/the3.X/ADC.h
+[v _readADCChannel readADCChannel `(us  1 e 2 0 ]
+"35
 [v _initADC initADC `(v  1 e 1 0 ]
 "48 /home/bs2019/e2380871/Downloads/the3.X/LCD.h
 [v _LCDCmd LCDCmd `(v  1 e 1 0 ]
@@ -50,41 +52,47 @@
 [v ___lmul __lmul `(ul  1 e 4 0 ]
 "91 /opt/microchip/xc8/v2.30/pic/sources/c99/common/Umul64.c
 [v ___omul __omul `(uo  1 e 8 0 ]
-"81 /home/bs2019/e2380871/Downloads/the3.X/newmain.c
+"71 /home/bs2019/e2380871/Downloads/the3.X/newmain.c
+[v _bitChangedToZero bitChangedToZero `(i  1 e 2 0 ]
+"74
 [v _moveSelectedPlayerPositionOnLCD moveSelectedPlayerPositionOnLCD `(v  1 e 1 0 ]
-"93
+"86
 [v _setInitialState setInitialState `(v  1 e 1 0 ]
-"123
+"116
 [v _display_7seg display_7seg `(v  1 e 1 0 ]
-"137
+"130
 [v _isThereOtherPlayer isThereOtherPlayer `(i  1 e 2 0 ]
-"147
+"140
 [v _frisbeeHeld frisbeeHeld `(i  1 e 2 0 ]
-"159
+"152
 [v _hasPlayerLeftFrisbeeLocation hasPlayerLeftFrisbeeLocation `(i  1 e 2 0 ]
-"175
+"168
 [v _frisbeeHeldOnLCD frisbeeHeldOnLCD `(v  1 e 1 0 ]
-"189
+"182
 [v _frisbeeReleasedOnLCD frisbeeReleasedOnLCD `(v  1 e 1 0 ]
-"201
+"194
 [v _gamepadPressed gamepadPressed `(v  1 e 1 0 ]
-"267
+"260
 [v _initRegisters initRegisters `(v  1 e 1 0 ]
-"320
+"313
 [v _switchSelectedPlayer switchSelectedPlayer `(v  1 e 1 0 ]
-"355
+"347
 [v _isThereAnyPlayer isThereAnyPlayer `(i  1 e 2 0 ]
-"364
+"356
 [v _throwFrisbee throwFrisbee `(v  1 e 1 0 ]
-"388
+"380
 [v _ifSelectedPlayerHold ifSelectedPlayerHold `(i  1 e 2 0 ]
-"394
+"386
 [v _moveFrisbee moveFrisbee `(v  1 e 1 0 ]
-"448
+"440
 [v _blink blink `(v  1 e 1 0 ]
-"462
+"447
+[v _isValidNPCMove isValidNPCMove `(i  1 e 2 0 ]
+"493
+[v _npcMove npcMove `(v  1 e 1 0 ]
+"555
 [v _FNC FNC `IIH(v  1 e 1 0 ]
-"515
+"610
 [v _main main `(v  1 e 1 0 ]
 "40 /home/bs2019/e2380871/Downloads/the3.X/LCD.h
 [v _lcd_x lcd_x `uc  1 e 1 0 ]
@@ -425,35 +433,41 @@
 [v _INTCONbits INTCONbits `VES445  1 e 1 @4082 ]
 "8172
 [v _TMR0IF TMR0IF `VEb  1 e 0 @32658 ]
-"17 /home/bs2019/e2380871/Downloads/the3.X/newmain.c
+"15 /home/bs2019/e2380871/Downloads/the3.X/newmain.c
+[v _TIMER0_INITIAL_VALUE TIMER0_INITIAL_VALUE `i  1 e 2 0 ]
+"16
+[v _TIMER2_INITIAL_VALUE TIMER2_INITIAL_VALUE `i  1 e 2 0 ]
+"17
 [v _CONVERT CONVERT `VEuc  1 e 1 0 ]
 "18
 [v _gamepad_button_pressed gamepad_button_pressed `VEuc  1 e 1 0 ]
 "19
 [v _previous_portb previous_portb `uc  1 e 1 0 ]
-"21
+"20
 [v _frisbee_held frisbee_held `i  1 e 2 0 ]
-"22
+"21
 [v _current_step current_step `i  1 e 2 0 ]
-"23
+"22
 [v _blink_flag blink_flag `i  1 e 2 0 ]
-"34
+"23
+[v _adc adc `i  1 e 2 0 ]
+"25
 [v _digits digits `[10]uc  1 e 10 0 ]
 [s S361 . 4 `i 1 x 2 0 `i 1 y 2 2 ]
-"64
+"55
 [s S364 . 28 `[4]S361 1 player_positions 16 0 `S361 1 frisbee_position 4 16 `i 1 selected_player 2 20 `i 1 teamA_score 2 22 `i 1 teamB_score 2 24 `i 1 game_mode 2 26 ]
 [v _gameState gameState `S364  1 e 28 0 ]
-"79
+"70
 [v _display_state display_state `VEi  1 e 2 0 ]
-"515
+"610
 [v _main main `(v  1 e 1 0 ]
 {
-"529
+"641
 } 0
-"93
+"86
 [v _setInitialState setInitialState `(v  1 e 1 0 ]
 {
-"118
+"111
 } 0
 "72 /home/bs2019/e2380871/Downloads/the3.X/LCD.h
 [v _LCDGoto LCDGoto `(v  1 e 1 0 ]
@@ -485,20 +499,29 @@
 [v LCDDat@dat dat `uc  1 a 1 0 ]
 "67
 } 0
-"267 /home/bs2019/e2380871/Downloads/the3.X/newmain.c
+"13 /home/bs2019/e2380871/Downloads/the3.X/ADC.h
+[v _readADCChannel readADCChannel `(us  1 e 2 0 ]
+{
+[v readADCChannel@channel channel `uc  1 a 1 wreg ]
+[v readADCChannel@channel channel `uc  1 a 1 wreg ]
+"16
+[v readADCChannel@channel channel `uc  1 a 1 4 ]
+"32
+} 0
+"260 /home/bs2019/e2380871/Downloads/the3.X/newmain.c
 [v _initRegisters initRegisters `(v  1 e 1 0 ]
 {
-"318
+"311
 } 0
 "35 /home/bs2019/e2380871/Downloads/the3.X/ADC.h
 [v _initADC initADC `(v  1 e 1 0 ]
 {
 "68
 } 0
-"123 /home/bs2019/e2380871/Downloads/the3.X/newmain.c
+"116 /home/bs2019/e2380871/Downloads/the3.X/newmain.c
 [v _display_7seg display_7seg `(v  1 e 1 0 ]
 {
-"134
+"127
 } 0
 "108 /home/bs2019/e2380871/Downloads/the3.X/LCD.h
 [v _InitLCD InitLCD `(v  1 e 1 0 ]
@@ -513,19 +536,19 @@
 [v LCDCmd@cmd cmd `uc  1 a 1 0 ]
 "56
 } 0
-"462 /home/bs2019/e2380871/Downloads/the3.X/newmain.c
+"555 /home/bs2019/e2380871/Downloads/the3.X/newmain.c
 [v _FNC FNC `IIH(v  1 e 1 0 ]
 {
-"513
+"606
 } 0
-"364
+"356
 [v _throwFrisbee throwFrisbee `(v  1 e 1 0 ]
 {
-"366
+"358
 [v throwFrisbee@selected_player selected_player `i  1 a 2 53 ]
 [v throwFrisbee@selected_player_y selected_player_y `i  1 a 2 51 ]
 [v throwFrisbee@selected_player_x selected_player_x `i  1 a 2 49 ]
-"386
+"378
 } 0
 "118 /home/bs2019/e2380871/Downloads/the3.X/the3.h
 [v _compute_frisbee_target_and_route compute_frisbee_target_and_route `(us  1 e 2 0 ]
@@ -556,7 +579,33 @@
 [v compute_frisbee_target_and_route@current_fisbee_y_position current_fisbee_y_position `us  1 p 2 19 ]
 "202
 } 0
-"204
+"313 /home/bs2019/e2380871/Downloads/the3.X/newmain.c
+[v _switchSelectedPlayer switchSelectedPlayer `(v  1 e 1 0 ]
+{
+"320
+[v switchSelectedPlayer@selected_player selected_player `i  1 a 2 20 ]
+"319
+[v switchSelectedPlayer@newY newY `i  1 a 2 18 ]
+[v switchSelectedPlayer@newX newX `i  1 a 2 16 ]
+[v switchSelectedPlayer@oldY oldY `i  1 a 2 14 ]
+[v switchSelectedPlayer@oldX oldX `i  1 a 2 12 ]
+"346
+} 0
+"493
+[v _npcMove npcMove `(v  1 e 1 0 ]
+{
+"500
+[v npcMove@isValidMove isValidMove `i  1 a 2 34 ]
+[v npcMove@oldY oldY `i  1 a 2 28 ]
+[v npcMove@oldX oldX `i  1 a 2 26 ]
+"495
+[v npcMove@i i `i  1 a 2 36 ]
+"494
+[v npcMove@random_direction random_direction `i  1 a 2 32 ]
+[v npcMove@selected_player selected_player `i  1 a 2 24 ]
+"552
+} 0
+"204 /home/bs2019/e2380871/Downloads/the3.X/the3.h
 [v _random_generator random_generator `(us  1 e 2 0 ]
 {
 "209
@@ -579,52 +628,51 @@
 [v ___lwmod@divisor divisor `ui  1 p 2 2 ]
 "25
 } 0
-"320 /home/bs2019/e2380871/Downloads/the3.X/newmain.c
-[v _switchSelectedPlayer switchSelectedPlayer `(v  1 e 1 0 ]
+"447 /home/bs2019/e2380871/Downloads/the3.X/newmain.c
+[v _isValidNPCMove isValidNPCMove `(i  1 e 2 0 ]
 {
-"328
-[v switchSelectedPlayer@selected_player selected_player `i  1 a 2 20 ]
-"327
-[v switchSelectedPlayer@newY newY `i  1 a 2 18 ]
-[v switchSelectedPlayer@newX newX `i  1 a 2 16 ]
-[v switchSelectedPlayer@oldY oldY `i  1 a 2 14 ]
-[v switchSelectedPlayer@oldX oldX `i  1 a 2 12 ]
-"354
+"448
+[v isValidNPCMove@y y `i  1 a 2 18 ]
+[v isValidNPCMove@x x `i  1 a 2 16 ]
+"447
+[v isValidNPCMove@selected_npc selected_npc `i  1 p 2 10 ]
+[v isValidNPCMove@random_direction random_direction `i  1 p 2 12 ]
+"490
 } 0
-"394
+"386
 [v _moveFrisbee moveFrisbee `(v  1 e 1 0 ]
 {
-"445
+"437
 } 0
-"355
+"347
 [v _isThereAnyPlayer isThereAnyPlayer `(i  1 e 2 0 ]
 {
-"356
+"348
 [v isThereAnyPlayer@i i `i  1 a 2 8 ]
-"355
+"347
 [v isThereAnyPlayer@x x `i  1 p 2 0 ]
 [v isThereAnyPlayer@y y `i  1 p 2 2 ]
-"362
+"354
 } 0
-"388
+"380
 [v _ifSelectedPlayerHold ifSelectedPlayerHold `(i  1 e 2 0 ]
 {
-"389
+"381
 [v ifSelectedPlayerHold@selected_player selected_player `i  1 a 2 7 ]
-"392
+"384
 } 0
-"201
+"194
 [v _gamepadPressed gamepadPressed `(v  1 e 1 0 ]
 {
-"205
+"198
 [v gamepadPressed@oldY oldY `i  1 a 2 24 ]
-"204
+"197
 [v gamepadPressed@oldX oldX `i  1 a 2 22 ]
-"202
+"195
 [v gamepadPressed@current_portb current_portb `uc  1 a 1 26 ]
-"265
+"258
 } 0
-"81
+"74
 [v _moveSelectedPlayerPositionOnLCD moveSelectedPlayerPositionOnLCD `(v  1 e 1 0 ]
 {
 [v moveSelectedPlayerPositionOnLCD@oldX oldX `i  1 p 2 6 ]
@@ -632,53 +680,72 @@
 [v moveSelectedPlayerPositionOnLCD@newX newX `i  1 p 2 10 ]
 [v moveSelectedPlayerPositionOnLCD@newY newY `i  1 p 2 12 ]
 [v moveSelectedPlayerPositionOnLCD@selectedPlayer selectedPlayer `i  1 p 2 14 ]
-"91
+"84
 } 0
-"137
+"130
 [v _isThereOtherPlayer isThereOtherPlayer `(i  1 e 2 0 ]
 {
-"138
+"131
 [v isThereOtherPlayer@i i `i  1 a 2 8 ]
-"137
+"130
 [v isThereOtherPlayer@oldX oldX `i  1 p 2 0 ]
 [v isThereOtherPlayer@oldY oldY `i  1 p 2 2 ]
-"144
+"137
 } 0
-"159
+"152
 [v _hasPlayerLeftFrisbeeLocation hasPlayerLeftFrisbeeLocation `(i  1 e 2 0 ]
 {
-"164
+"157
 [v hasPlayerLeftFrisbeeLocation@selected_player selected_player `i  1 a 2 6 ]
-"172
+"165
 } 0
-"189
+"182
 [v _frisbeeReleasedOnLCD frisbeeReleasedOnLCD `(v  1 e 1 0 ]
 {
-"190
+"183
 [v frisbeeReleasedOnLCD@frisbeeY frisbeeY `i  1 a 2 10 ]
 [v frisbeeReleasedOnLCD@frisbeeX frisbeeX `i  1 a 2 8 ]
-"199
+"192
 } 0
-"175
+"168
 [v _frisbeeHeldOnLCD frisbeeHeldOnLCD `(v  1 e 1 0 ]
 {
-"176
+"169
 [v frisbeeHeldOnLCD@frisbeeY frisbeeY `i  1 a 2 12 ]
 [v frisbeeHeldOnLCD@frisbeeX frisbeeX `i  1 a 2 10 ]
 [v frisbeeHeldOnLCD@selected_player selected_player `i  1 a 2 6 ]
-"186
+"179
 } 0
-"147
+"91 /home/bs2019/e2380871/Downloads/the3.X/LCD.h
+[v _LCDStr LCDStr `(v  1 e 1 0 ]
+{
+"92
+[v LCDStr@i i `uc  1 a 1 5 ]
+"91
+[v LCDStr@str str `*.25Cuc  1 p 2 1 ]
+"104
+} 0
+"140 /home/bs2019/e2380871/Downloads/the3.X/newmain.c
 [v _frisbeeHeld frisbeeHeld `(i  1 e 2 0 ]
 {
-"148
+"141
 [v frisbeeHeld@selected_player selected_player `i  1 a 2 6 ]
-"156
+"149
 } 0
-"448
+"71
+[v _bitChangedToZero bitChangedToZero `(i  1 e 2 0 ]
+{
+[v bitChangedToZero@prev prev `uc  1 a 1 wreg ]
+[v bitChangedToZero@prev prev `uc  1 a 1 wreg ]
+[v bitChangedToZero@curr curr `uc  1 p 1 0 ]
+[v bitChangedToZero@bit bit `i  1 p 2 1 ]
+[v bitChangedToZero@prev prev `uc  1 a 1 5 ]
+"73
+} 0
+"440
 [v _blink blink `(v  1 e 1 0 ]
 {
-"459
+"444
 } 0
 "72 /home/bs2019/e2380871/Downloads/the3.X/LCD.h
 [v i2_LCDGoto LCDGoto `(v  1 e 1 0 ]
@@ -696,15 +763,6 @@
 [v i2LCDCmd@cmd cmd `uc  1 a 1 wreg ]
 [v i2LCDCmd@cmd cmd `uc  1 a 1 0 ]
 "56
-} 0
-"91
-[v _LCDStr LCDStr `(v  1 e 1 0 ]
-{
-"92
-[v LCDStr@i i `uc  1 a 1 5 ]
-"91
-[v LCDStr@str str `*.32Cuc  1 p 2 1 ]
-"104
 } 0
 "58
 [v i2_LCDDat LCDDat `(v  1 e 1 0 ]

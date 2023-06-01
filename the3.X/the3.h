@@ -209,7 +209,7 @@ unsigned short random_generator(unsigned short modulo) {
     int timer_value = TMR1;
 
     // Compute the pseudo-random number
-    int pseudo_random = (timer_value % modulo) ;
+    int pseudo_random = (timer_value % modulo) + 1;
 
     // Perform the rotation
     int rotated_value = timer_value >> rotation;
