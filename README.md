@@ -2,7 +2,7 @@
 This project is a simulation of an Ultimate Frisbee game working on PIC18F4620 microcontroller.
 It is implemented in C for the microcontroller and uses an LCD display to visualize the game.
 
-![Gameplay](gameplay.gif)
+![Gameplay](Gameplay.gif)
 
 ## Features
 * The game includes four players, two for each team. The players' positions are displayed on the LCD.
